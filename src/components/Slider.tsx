@@ -1,4 +1,4 @@
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper/modules';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -14,17 +14,18 @@ export default () => {
     <div className="slider">
         <Swiper
       // install Swiper modules
-      modules={[Navigation, Pagination, Scrollbar, A11y]}
+      modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
       spaceBetween={50}
       slidesPerView={1}
       navigation
       pagination={{ clickable: true }}
-     
+      autoplay
       onSwiper={(swiper) => console.log(swiper)}
       onSlideChange={() => console.log('slide change')}
     >
       <SwiperSlide><img src="Frame 2.svg" alt="" /></SwiperSlide>
-      <SwiperSlide>Slide 2</SwiperSlide>
+      <SwiperSlide><img src="baner1.svg" alt="" /></SwiperSlide>
+      <SwiperSlide><img src="baner2.svg" alt="" /></SwiperSlide>
       
       ...
     </Swiper>
