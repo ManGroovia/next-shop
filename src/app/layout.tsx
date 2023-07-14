@@ -4,7 +4,8 @@ import { Inter, Roboto, Raleway, Lora, Ysabeau } from "next/font/google";
 import Slider from "@/components/Slider";
 import Header from "@/components/header";
 import Home from "./page";
-const lora = Roboto({
+import Footer from "@/components/Footer";
+const roboto = Roboto({
   weight: "400",
   subsets: ["latin"],
 });
@@ -22,10 +23,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <>
-        <body className={lora.className}>
+        <body className={roboto.className}>
           <Header></Header>
           <Slider></Slider>
           <Home></Home>
+          <Footer/>
         </body>
       </>
     </html>
