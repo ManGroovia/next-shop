@@ -1,3 +1,5 @@
+import Search from "./Search"; 
+
 export default function Header() {
   return (
     <>
@@ -10,10 +12,7 @@ export default function Header() {
             <img src="Vector.svg" alt="" />
             <h3>Каталог</h3>
         </div>
-        <div className="search">
-          <input type="text" placeholder="Введите название товара" />
-          <img src="qidirish.svg" alt="" />
-        </div>
+        <Search/>
         <div className="fav_cart">
           <img src="Sevimlilar.svg" alt="" />
           <img src="Korzina.svg" alt="" />
