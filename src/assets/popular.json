@@ -1,0 +1,62 @@
+[
+  {
+    "id": 0,
+    "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_77_3811_4_6_320.webp",
+    "title": "Смартфон Apple iPhone 14 Pro Max 256 GB Space Black",
+    "price": 599990
+  },
+  {
+    "id": 1,
+    "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_77_4336_0_1_320.webp",
+    "title": "Смартфон Xiaomi Redmi Note 12 Pro 8/256GB Graphite Gray",
+    "price": 149990
+  },
+  {
+    "id": 2,
+    "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_77_4435_8_6_320.webp",
+    "title": "Смартфон Samsung Galaxy A54 5G",
+    "price": 279590
+  },
+  {
+    "id": 3,
+    "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_14_335_3_6_320.webp",
+    "title": "Кондиционер ARG ACTN",
+    "price": 89590
+  },
+  {
+    "id": 4,
+    "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_8_566_0_320.webp",
+    "title": "Стиральная машина LG F-2M5HS6S",
+    "price": 249000
+  },
+  {
+    "id": 5,
+    "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_8_1021_4_1_320.webp",
+    "title": "Стиральная машина Beko ",
+    "price": 129000
+  },
+  {
+    "id": 6,
+    "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_83_1081_0.webp",
+    "title": "Наушники Apple Airpods",
+    "price": 55200
+  },
+  {
+    "id": 7,
+    "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_62_2067_5_1_320.webp",
+    "title": "Ноутбук Apple MacBook Air 2020 M1",
+    "price": 459700
+  },
+  {
+    "id": 8,
+    "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_95_2027_11_1_320.webp",
+    "title": "LED телевизор Samsung UE55AU7100UXCE",
+    "price": 350800
+  },
+  {
+    "id": 9,
+    "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_25_1084_1_6.webp",
+    "title": "Холодильник Samsung RB38T77",
+    "price": 419990
+  }
+]

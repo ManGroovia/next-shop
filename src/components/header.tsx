@@ -1,12 +1,12 @@
 import Search from "./Search"; 
-
+import Link from "next/link";
 export default function Header() {
   return (
     <>
       <div className="container">
       <div className="header">
         <div className="logo">
-            <img src="Logo.svg" alt="" />
+            <Link href="/"><img src="Logo.svg" alt="" /></Link>
         </div>
         <div className="katalog">
             <img src="Vector.svg" alt="" />

@@ -1,0 +1,51 @@
+[
+  {
+    "id": 0,
+    "imageSrc": "kategory/phone.svg",
+    "title": "Смартфоны",
+    "category": "Smartphones"
+  },
+  {
+    "id": 1,
+    "imageSrc": "kategory/laptop.svg",
+    "title": "Компьютеры и комплектующие",
+    "category": "laptops"
+  },
+  {
+    "id": 2,
+    "imageSrc": "kategory/tv.svg",
+    "title": "Телевизоры",
+    "category": "tv"
+  },
+  {
+    "id": 3,
+    "imageSrc": "kategory/watch.svg",
+    "title": "Умные часы",
+    "category": "watch"
+  },
+  {
+    "id": 4,
+    "imageSrc": "kategory/airpods.svg",
+    "title": "Акссесуары",
+    "category": "airpods"
+  },
+  {
+    "id": 5,
+    "imageSrc": "kategory/conder.svg",
+    "title": "Кондиционеры",
+    "category": "conder"
+  },
+  {
+    "id": 6,
+    "imageSrc": "kategory/freez.svg",
+    "title": "Холодильники"
+    ,
+        "category": "freez"
+  },
+  {
+    "id": 7,
+    "imageSrc": "kategory/wash.svg",
+    "title": "Стиральные машины",
+    "category": "wash"
+  }
+]

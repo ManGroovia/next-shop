@@ -26,8 +26,9 @@ export default function RootLayout({
         <body className={roboto.className}>
           <Header></Header>
           <Slider></Slider>
-          <Home></Home>
-          <Footer/>
+          <main className="mainContent">{children}</main>
+          
+          <Footer />
         </body>
       </>
     </html>
