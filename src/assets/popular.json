@@ -20,7 +20,7 @@
   {
     "id": 3,
     "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_14_335_3_6_320.webp",
-    "title": "Кондиционер ARG ACTN",
+    "title": "Кондиционер ARG ACTN 2134 ASD",
     "price": 89590
   },
   {
@@ -32,13 +32,13 @@
   {
     "id": 5,
     "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_8_1021_4_1_320.webp",
-    "title": "Стиральная машина Beko ",
+    "title": "Стиральная машина Beko AG342RR",
     "price": 129000
   },
   {
     "id": 6,
     "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_83_1081_0.webp",
-    "title": "Наушники Apple Airpods",
+    "title": "Наушники Apple Airpods Standard",
     "price": 55200
   },
   {
@@ -56,7 +56,84 @@
   {
     "id": 9,
     "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_25_1084_1_6.webp",
-    "title": "Холодильник Samsung RB38T77",
+    "title": "Холодильник Samsung RB38T77AD64",
     "price": 419990
+  }
+  ,
+  {
+    "id": 10,
+    "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_95_2027_11_1_320.webp",
+    "title": "LED телевизор Samsung UE55AU7100UXCE",
+    "price": 350800
+  }
+  ,
+  {
+    "id": 11,
+    "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_95_2027_11_1_320.webp",
+    "title": "LED телевизор Samsung UE55AU7100UXCE",
+    "price": 350800
+  }
+  ,
+  {
+    "id": 12,
+    "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_95_2027_11_1_320.webp",
+    "title": "LED телевизор Samsung UE55AU7100UXCE",
+    "price": 350800
+  }
+  ,
+  {
+    "id": 13,
+    "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_95_2027_11_1_320.webp",
+    "title": "LED телевизор Samsung UE55AU7100UXCE",
+    "price": 350800
+  }
+  ,
+  {
+    "id": 14,
+    "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_95_2027_11_1_320.webp",
+    "title": "LED телевизор Samsung UE55AU7100UXCE",
+    "price": 350800
+  }
+  ,
+  {
+    "id": 15,
+    "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_95_2027_11_1_320.webp",
+    "title": "LED телевизор Samsung UE55AU7100UXCE",
+    "price": 350800
+  }
+  ,
+  {
+    "id": 16,
+    "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_95_2027_11_1_320.webp",
+    "title": "LED телевизор Samsung UE55AU7100UXCE",
+    "price": 350800
+  }
+  ,
+  {
+    "id": 17,
+    "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_95_2027_11_1_320.webp",
+    "title": "LED телевизор Samsung UE55AU7100UXCE",
+    "price": 350800
+  }
+  ,
+  {
+    "id": 18,
+    "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_95_2027_11_1_320.webp",
+    "title": "LED телевизор Samsung UE55AU7100UXCE",
+    "price": 350800
+  }
+  ,
+  {
+    "id": 19,
+    "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_95_2027_11_1_320.webp",
+    "title": "LED телевизор Samsung UE55AU7100UXCE",
+    "price": 350800
+  }
+  ,
+  {
+    "id": 20,
+    "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_95_2027_11_1_320.webp",
+    "title": "LED телевизор Samsung UE55AU7100UXCE",
+    "price": 350800
   }
 ]

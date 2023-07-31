@@ -1,0 +1,80 @@
+[
+  {
+    "id": 0,
+    "imageSrc": "https://object.pscloud.io/cms/cms/UploadsCatalog/img_0_1158_0_0.webp",
+    "title": "Процессоры",
+    "category": "processors"
+  },
+  {
+    "id": 1,
+    "imageSrc": "https://object.pscloud.io/cms/cms/UploadsCatalog/img_0_1163_0_0.webp",
+    "title": "Блоки питания",
+    "category": "blocks"
+  },
+  {
+    "id": 2,
+    "imageSrc": "https://object.pscloud.io/cms/cms/UploadsCatalog/img_0_1152_0_0.webp",
+    "title": "Видеокарты",
+    "category": "Videocard"
+  },
+  {
+    "id": 3,
+    "imageSrc": "https://object.pscloud.io/cms/cms/UploadsCatalog/img_0_1342_0_0.webp",
+    "title": "Оперативная память",
+    "category": "ozu"
+  },
+  {
+    "id": 4,
+    "imageSrc": "https://object.pscloud.io/cms/cms/UploadsCatalog/img_0_1328_0_0.webp",
+    "title": "Корпуса",
+    "category": "korpusa"
+  },
+  {
+    "id": 5,
+    "imageSrc": "https://object.pscloud.io/cms/cms/UploadsCatalog/img_0_1151_0_0.webp",
+    "title": "Материнские платы",
+    "category": "plates"
+  },
+  {
+    "id": 6,
+    "imageSrc": "https://object.pscloud.io/cms/cms/UploadsCatalog/img_0_62_0_0.webp",
+    "title": "Ноутбуки",
+    "category": "laptops"
+  },
+  {
+    "id": 7,
+    "imageSrc": "https://object.pscloud.io/cms/cms/UploadsCatalog/img_0_65_0_0.webp",
+    "title": "Мониторы",
+    "category": "monitors"
+  },
+  {
+    "id": 8,
+    "imageSrc": "https://object.pscloud.io/cms/cms/UploadsCatalog/img_0_66_0_0.webp",
+    "title": "Персональные компьютеры",
+    "category": "pc"
+  },
+  {
+    "id": 9,
+    "imageSrc": "https://object.pscloud.io/cms/cms/UploadsCatalog/img_0_437_0_0.webp",
+    "title": "Моноблоки",
+    "category": "monoblocks"
+  },
+  {
+    "id": 10,
+    "imageSrc": "https://object.pscloud.io/cms/cms/UploadsCatalog/img_0_88_0_0.webp",
+    "title": "Клавиатуры",
+    "category": "keyboard"
+  },
+  {
+    "id": 11,
+    "imageSrc": "https://object.pscloud.io/cms/cms/UploadsCatalog/img_0_89_0_0.webp",
+    "title": "Мышки",
+    "category": "mouse"
+  },
+  {
+    "id": 12,
+    "imageSrc": "https://object.pscloud.io/cms/cms/UploadsCatalog/img_0_648_0_0.webp",
+    "title": "Коврики для мыши",
+    "category": "kovriks"
+  }
+]

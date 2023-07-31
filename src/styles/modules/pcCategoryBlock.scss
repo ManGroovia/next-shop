@@ -1,0 +1,22 @@
+.pc_categories{
+   
+
+
+  .pc_category_block{
+    width: 293px;
+    height: 290px;
+    border-radius: 10px;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    p{
+      font-size: 20px;
+    }
+    img{
+      width: 208px;
+      height: 168px;
+    }
+  }
+}
