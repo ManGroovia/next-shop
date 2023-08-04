@@ -38,14 +38,61 @@
   {
     "id": 6,
     "imageSrc": "kategory/freez.svg",
-    "title": "Холодильники"
-    ,
-        "category": "freez"
+    "title": "Холодильники",
+    "category": "freez"
   },
   {
     "id": 7,
     "imageSrc": "kategory/wash.svg",
     "title": "Стиральные машины",
     "category": "wash"
+  },
+  {
+    "id": 8,
+    "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_931_146_2_1.webp",
+    "title": "Кофемашины",
+    "category": "coffee"
+  },
+  {
+    "id": 9,
+    "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_21_247_0_6_320.webp",
+    "title": "Микроволновые печи",
+    "category": "mircowave"
+  },
+  {
+    "id": 11,
+    "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_2235_100_2_1_320.webp",
+    "title": "Морозильники",
+    "category": "morozilniki"
+  },
+  {
+    "id": 12,
+    "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_16_626_1_1_320.webp",
+    "title": "Кухонные плиты",
+    "category": "plity"
+  },
+  {
+    "id": 13,
+    "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_22_155_0_320.webp",
+    "title": "Посудомоечные машины",
+    "category": "posudawash"
+  },
+  {
+    "id": 14,
+    "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_17_196_6_1_320.webp",
+    "title": "Увлажнители воздуха",
+    "category": "uvlajnitely"
+  },
+  {
+    "id": 15,
+    "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_24_941_1_1_320.webp",
+    "title": "Роботы пылесосы",
+    "category": "robots"
+  },
+  {
+    "id": 16,
+    "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_577_64_0_6_320.webp",
+    "title": "Дроны",
+    "category": "drones"
   }
 ]

@@ -5,6 +5,8 @@ import Slider from "@/components/Slider";
 import Header from "@/components/header";
 import Home from "./page";
 import Footer from "@/components/Footer";
+import Katalog from "../components/modals/Katalog";
+import React from "react";
 const roboto = Roboto({
   weight: "400",
   subsets: ["latin"],
@@ -20,14 +22,16 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  
   return (
     <html lang="en">
       <>
         <body className={roboto.className}>
           <Header></Header>
+         <Katalog />
           <Slider></Slider>
           <main className="mainContent">{children}</main>
-          
+
           <Footer />
         </body>
       </>

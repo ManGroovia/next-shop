@@ -1,6 +1,9 @@
-import Search from "./Search"; 
+import Search from "./Search";
+import Katalog from "../components/modals/Katalog"; 
 import Link from "next/link";
-export default function Header() {
+import React from 'react'
+export default function Header({openModal}:any) {
+
   return (
     <>
       <div className="container">
@@ -8,10 +11,12 @@ export default function Header() {
         <div className="logo">
             <Link href="/"><img src="Logo.svg" alt="" /></Link>
         </div>
-        <div className="katalog">
+        <div onClick={openModal} className="katalog">
             <img src="Vector.svg" alt="" />
             <h3>Каталог</h3>
+            
         </div>
+        
         <Search/>
         <div className="fav_cart">
           <img src="Sevimlilar.svg" alt="" />
@@ -21,6 +26,7 @@ export default function Header() {
           <button>Войти</button>
         </div>
       </div>
+      
       </div>
     </>
   );

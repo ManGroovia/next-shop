@@ -1,15 +1,12 @@
 .main {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  grid-column-gap: 20px;
-  grid-row-gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 55px;
   width: 80%;
   margin: auto;
-
   
 }
-.Popular_content{
- width: 80%;
- margin: auto;
+.Popular_content {
+  width: 80%;
+  margin: auto;
 }

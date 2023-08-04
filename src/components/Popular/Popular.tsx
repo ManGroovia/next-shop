@@ -31,7 +31,7 @@ export default function Popular({ numItemsToShow }: PopularProps) {
           <div className="item-block-wrapper">
             <TransitionGroup component={null}>
               {popular.slice(0, itemsToShow).map((obj) => (
-                <CSSTransition key={obj.id} classNames="fade" timeout={300}>
+                <CSSTransition key={obj.id} classNames="fade" timeout={500}>
                   <ItemBlock
                     src={obj.imageSrc}
                     price={obj.price}

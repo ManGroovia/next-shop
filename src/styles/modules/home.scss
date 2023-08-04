@@ -21,6 +21,10 @@
     display: flex;
     justify-content: space-between;
     margin-top: 10px;
+    
+    flex-wrap: wrap;
+    gap: 30px;
+    
     .kategory {
       width: 136px;
       height: 200px;
@@ -33,6 +37,7 @@
       justify-content: center;
       flex-direction: column;
       cursor: pointer;
+      
     }
   }
   .title {

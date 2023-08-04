@@ -5,9 +5,10 @@ import Companies from "@/components/Companies";
 import Categories from "@/components/Categories";
 
 export default function Home() {
+
   return (
     <>
-      <Categories />
+      <Categories numItemsToShow={8}/>
       <Popular numItemsToShow={10} />
       <div className="info_brands">
         <Brands />

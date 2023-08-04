@@ -1,0 +1,37 @@
+.laptops_wrapper {
+  width: 100%;
+
+  display: flex;
+  justify-content: space-around;
+  .laptop_content {
+    display: flex;
+
+    width: 80%;
+  }
+  .brand_filter {
+    width: 230px;
+    height: 493px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-radius: 10px;
+    background-color: #ffffff;
+    ul {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      height: 90%;
+      li {
+        margin-left: 10px;
+        cursor: pointer;
+      }
+      li:hover {
+        color: #0d63f3;
+        transition: all 0.3s;
+      }
+    }
+    .title {
+      text-align: center;
+    }
+  }
+}

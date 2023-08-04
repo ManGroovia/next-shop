@@ -45,7 +45,8 @@
     "id": 7,
     "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_62_2067_5_1_320.webp",
     "title": "Ноутбук Apple MacBook Air 2020 M1",
-    "price": 459700
+    "price": 459700,
+    "brand": "Apple"
   },
   {
     "id": 8,
