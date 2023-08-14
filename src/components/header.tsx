@@ -2,7 +2,8 @@ import Search from "./Search";
 import Katalog from "../components/modals/Katalog"; 
 import Link from "next/link";
 import React from 'react'
-export default function Header({openModal}:any) {
+export default function Header({ onKatalogButtonClick }: { onKatalogButtonClick: () => void }) {
+
 
   return (
     <>
@@ -11,7 +12,7 @@ export default function Header({openModal}:any) {
         <div className="logo">
             <Link href="/"><img src="Logo.svg" alt="" /></Link>
         </div>
-        <div onClick={openModal} className="katalog">
+        <div onClick={onKatalogButtonClick} className="katalog">
             <img src="Vector.svg" alt="" />
             <h3>Каталог</h3>
             

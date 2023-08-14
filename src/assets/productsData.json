@@ -1,0 +1,109 @@
+[
+    {
+        "Ноутбуки":[{
+            "id": 0,
+            "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_62_2679_0_1_320.webp",
+            "title": "Acer Nitro 5",
+            "price": 519000,
+            "brand": "Acer"
+          },
+          {
+            "id": 1,
+            "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_62_2067_5_1_320.webp",
+            "title": "Apple MacBook Air 2020 M1",
+            "price": 459000,
+            "brand": "Apple"
+          },
+          {
+            "id": 2,
+            "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_62_2847_12_6_320.webp",
+            "title": "Asus TUF Gaming",
+            "price": 339000,
+            "brand": "Asus"
+          },
+          {
+            "id": 3,
+            "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_62_2679_0_1_320.webp",
+            "title": "Acer Nitro 5",
+            "price": 519000,
+            "brand": "Acer"
+          },
+          {
+            "id": 4,
+            "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_62_2067_5_1_320.webp",
+            "title": "Apple MacBook Air 2020 M1",
+            "price": 459000,
+            "brand": "Apple"
+          },
+          {
+            "id": 5,
+            "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_62_2847_12_6_320.webp",
+            "title": "Asus TUF Gaming",
+            "price": 339000,
+            "brand": "Asus"
+          },
+          {
+            "id": 6,
+            "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_62_2679_0_1_320.webp",
+            "title": "Acer Nitro 5",
+            "price": 519000,
+            "brand": "Acer"
+          },
+          {
+            "id": 7,
+            "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_62_2067_5_1_320.webp",
+            "title": "Apple MacBook Air 2020 M1",
+            "price": 459000,
+            "brand": "Apple"
+          },
+          {
+            "id": 8,
+            "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_62_2847_12_6_320.webp",
+            "title": "Asus TUF Gaming",
+            "price": 339000,
+            "brand": "Asus"
+          },
+          {
+            "id": 9,
+            "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_62_2679_0_1_320.webp",
+            "title": "Acer Nitro 5",
+            "price": 519000,
+            "brand": "Acer"
+          },
+          {
+            "id": 10,
+            "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_62_2067_5_1_320.webp",
+            "title": "Apple MacBook Air 2020 M1",
+            "price": 459000,
+            "brand": "Apple"
+          },
+          {
+            "id": 11,
+            "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_62_2847_12_6_320.webp",
+            "title": "Asus TUF Gaming",
+            "price": 339000,
+            "brand": "Asus"
+          }],
+        "Смартфоны":[{
+            "id": 0,
+            "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_77_3811_4_6_320.webp",
+            "title": "Смартфон Apple iPhone 14 Pro Max 256 GB Space Black",
+            "price": 599990
+          },
+          {
+            "id": 1,
+            "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_77_4336_0_1_320.webp",
+            "title": "Смартфон Xiaomi Redmi Note 12 Pro 8/256GB Graphite Gray",
+            "price": 149990
+          },
+          {
+            "id": 2,
+            "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_77_4435_8_6_320.webp",
+            "title": "Смартфон Samsung Galaxy A54 5G",
+            "price": 279590
+          }]
+    }
+]
+
+
+

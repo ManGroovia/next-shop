@@ -1,18 +1,20 @@
 import Link from "next/link";
 import categories from "../assets/categories.json";
-import Image from "next/image";
+
 import CategoryBlock from "./CategoryBlock";
 import React from "react";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
+import { motion, AnimatePresence } from "framer-motion";
 interface PopularProps {
   numItemsToShow: number;
 }
 
 export default function Categories({ numItemsToShow }: PopularProps) {
   const [itemsToShow, setItemsToShow] = React.useState(numItemsToShow);
+  const [shouldAnimate, setShouldAnimate] = React.useState(false);
   const totalItemsToShow = categories.length;
   const showMoreItems = () => {
     setItemsToShow((prevItemsToShow) => prevItemsToShow + numItemsToShow);
+    setShouldAnimate(true)
   };
   const remainingItems = totalItemsToShow - itemsToShow;
 
@@ -22,13 +24,25 @@ export default function Categories({ numItemsToShow }: PopularProps) {
         <div className="title">
           <h3>Категории</h3>
         </div>
+
         <div className="kategoryes">
-          {categories.slice(0, itemsToShow).map((obj) => (
+          {categories.slice(0, itemsToShow).map((obj,index) => (
             <Link href={`/${obj.category}`} key={obj.title}>
-              <CategoryBlock src={obj.imageSrc} title={obj.title} />
+              <AnimatePresence>
+                <motion.div
+                  initial={shouldAnimate ? { opacity: 0, y: 15 } : false}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 15 }}
+                  transition={{ delay: shouldAnimate ? 0.2 : 0 }}
+                  key={index}
+                >
+                  <CategoryBlock src={obj.imageSrc} title={obj.title} />
+                </motion.div>
+              </AnimatePresence>
             </Link>
           ))}
         </div>
+
         {remainingItems > 0 && (
           <button onClick={showMoreItems} className="more">
             Показать больше
