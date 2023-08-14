@@ -36,7 +36,7 @@ export default function Categories({ numItemsToShow }: PopularProps) {
                   transition={{ delay: shouldAnimate ? 0.2 : 0 }}
                   key={index}
                 >
-                  <CategoryBlock src={obj.imageSrc} title={obj.title} />
+                  <CategoryBlock key={obj.id} src={obj.imageSrc} title={obj.title} />
                 </motion.div>
               </AnimatePresence>
             </Link>

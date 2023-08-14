@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import favImg from "../../../public/fav.svg";
-import cartImg from "../../../public/itemCart.svg"
+import cartImg from "../../../public/itemCart.svg";
 interface IItemBlock {
   src: string;
   price: number;
@@ -29,7 +29,7 @@ export default function ItemBlock({
       <div className="item-block-wrapper">
         <div className={className}>
           <div className="item-block-fav">
-            <Image src= {favImg} alt="fav"/>
+            <Image src={favImg} alt="fav" />
           </div>
           <div className="item-block-img">
             <Image src={src} alt="img" width={136} height={136} />
@@ -46,7 +46,11 @@ export default function ItemBlock({
             >
               {added}
             </button>
-            <Image src= {cartImg} alt="cart"/>
+            <Image
+              src={cartImg}
+              alt="cart"
+              style={{ width: "24px", height: "24px" }}
+            />
           </div>
         </div>
       </div>
