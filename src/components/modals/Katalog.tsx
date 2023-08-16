@@ -6,7 +6,7 @@ import SubCategories from "../katalog-categories/SubCategoryList";
 import React from "react";
 interface Subcategory {
   id: number;
-  name: string;
+  title: string;
 }
 
 interface Category {
@@ -16,7 +16,7 @@ interface Category {
   category: string;
   subcategories?: Subcategory[];
 }
-export default function KatalogModal() {
+export default React.memo(function KatalogModal() {
   const [selectedCategory, setSelectedCategory] = useState<Category | null>(
     null
   );
@@ -25,35 +25,33 @@ export default function KatalogModal() {
   };
   return (
     <>
-    <AnimatePresence>
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 15 }}
-              transition={{ delay: 0.2 }}
-            ><div className="katalog_wrapper">
+      <AnimatePresence>
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 15 }}
+          transition={{ delay: 0.2 }}
+        >
+          <div className="katalog_wrapper">
             <div className="katalog_left">
               <MainCategories
                 categories={allCategories}
                 onCategoryClick={handleCategoryClick}
               />
             </div>
-    
+
             <div className="katalog_right">
               <div className="f_column">
-               
-                  {selectedCategory && selectedCategory.subcategories && (
-                  <SubCategories subcategories={selectedCategory.subcategories} />
+                {selectedCategory && selectedCategory.subcategories && (
+                  <SubCategories
+                    subcategories={selectedCategory.subcategories}
+                  />
                 )}
-                
               </div>
-              
             </div>
           </div>
-              
-            </motion.div>
-          </AnimatePresence>
-      
+        </motion.div>
+      </AnimatePresence>
     </>
   );
-}
+});

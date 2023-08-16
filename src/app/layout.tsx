@@ -27,6 +27,7 @@ export default function RootLayout({
 
   const handleKatalogButtonClick = () => {
     setIsKatalogOpen(!isKatalogOpen);
+    
   };
   return (
     <html lang="en">

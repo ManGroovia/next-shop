@@ -2,7 +2,7 @@ import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 interface Subcategory {
   id: number;
-  name: string;
+  title: string;
 }
 
 interface SubcategoriesProps {
@@ -20,7 +20,7 @@ const Subcategories: React.FC<SubcategoriesProps> = ({ subcategories }) => {
           transition={{ delay: 0.2 }}
         >
           {subcategories.map((subcategory) => (
-            <li key={subcategory.id}>{subcategory.name}</li>
+            <li key={subcategory.id}>{subcategory.title}</li>
           ))}
         </motion.ul>
       </AnimatePresence>

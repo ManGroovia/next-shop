@@ -1,121 +1,215 @@
 [
-    {
+  {
+    "id": 0,
+    "imageSrc": "kategory/phone.svg",
+    "title": "Смартфоны",
+    "category": "Smartphones",
+    "subcategories": [
+      {
         "id": 0,
-        "imageSrc": "kategory/phone.svg",
-        "title": "Смартфоны",
-        "category": "Smartphones",
-        "subcategories": [
-          { "id": 0, "name": "Apple" },
-          { "id": 1, "name": "Samsung" },
-          { "id": 2, "name": "Xiaomi" },
-          { "id": 3, "name": "Vivo" },
-          { "id": 4, "name": "Huawei" },
-          { "id": 5, "name": "Nokia" },
-          { "id": 6, "name": "OPPO" }
-        ]
+        "title": "Apple",
+        "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_1_62_0_6.webp"
       },
       {
         "id": 1,
-        "imageSrc": "kategory/laptop.svg",
-        "title": "Компьютеры и комплектующие",
-        "category": "laptops",
-        "subcategories": [
-          { "id": 0, "name": "Процессоры" },
-          { "id": 1, "name": "Блоки питания" },
-          { "id": 2, "name": "Оперативная память" },
-          { "id": 3, "name": "Материнские платы" },
-          { "id": 4, "name": "Ноутбуки" },
-          { "id": 5, "name": "Мониторы" },
-          { "id": 6, "name": "Персональные компьютеры" },
-          { "id": 7, "name": "Моноблоки" },
-          { "id": 8, "name": "Клавиатуры" },
-          { "id": 9, "name": "Мышки" },
-          { "id": 10, "name": "Коврики" }
-        ]
-        
+        "title": "Samsung",
+        "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_1_1_0_6.webp"
       },
       {
         "id": 2,
-        "imageSrc": "kategory/tv.svg",
-        "title": "Телевизоры",
-        "category": "tv"
+        "title": "Xiaomi",
+        "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_1_477_0.webp"
       },
       {
         "id": 3,
-        "imageSrc": "kategory/watch.svg",
-        "title": "Умные часы",
-        "category": "watch"
+        "title": "Vivo",
+        "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_1_3161_0_6_tsZmi9.webp"
       },
       {
         "id": 4,
-        "imageSrc": "kategory/airpods.svg",
-        "title": "Акссесуары",
-        "category": "airpods"
+        "title": "Huawei",
+        "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_1_300_0_6.webp"
       },
       {
         "id": 5,
-        "imageSrc": "kategory/conder.svg",
-        "title": "Кондиционеры",
-        "category": "conder"
+        "title": "ZTE",
+        "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_1_159_0_6.webp"
       },
       {
         "id": 6,
-        "imageSrc": "kategory/freez.svg",
-        "title": "Холодильники",
-        "category": "freez"
+        "title": "OPPO",
+        "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_1_1_0_6.webp"
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "imageSrc": "kategory/laptop.svg",
+    "title": "Компьютеры и комплектующие",
+    "category": "laptops",
+    "subcategories": [
+      {
+        "id": 0,
+        "imageSrc": "https://object.pscloud.io/cms/cms/UploadsCatalog/img_0_1158_0_0.webp",
+        "title": "Процессоры",
+        "category": "processors"
+      },
+      {
+        "id": 1,
+        "imageSrc": "https://object.pscloud.io/cms/cms/UploadsCatalog/img_0_1163_0_0.webp",
+        "title": "Блоки питания",
+        "category": "blocks"
+      },
+      {
+        "id": 2,
+        "imageSrc": "https://object.pscloud.io/cms/cms/UploadsCatalog/img_0_1152_0_0.webp",
+        "title": "Видеокарты",
+        "category": "Videocard"
+      },
+      {
+        "id": 3,
+        "imageSrc": "https://object.pscloud.io/cms/cms/UploadsCatalog/img_0_1342_0_0.webp",
+        "title": "Оперативная память",
+        "category": "ozu"
+      },
+      {
+        "id": 4,
+        "imageSrc": "https://object.pscloud.io/cms/cms/UploadsCatalog/img_0_1328_0_0.webp",
+        "title": "Корпуса",
+        "category": "korpusa"
+      },
+      {
+        "id": 5,
+        "imageSrc": "https://object.pscloud.io/cms/cms/UploadsCatalog/img_0_1151_0_0.webp",
+        "title": "Материнские платы",
+        "category": "plates"
+      },
+      {
+        "id": 6,
+        "imageSrc": "https://object.pscloud.io/cms/cms/UploadsCatalog/img_0_62_0_0.webp",
+        "title": "Ноутбуки",
+        "category": "laptops"
       },
       {
         "id": 7,
-        "imageSrc": "kategory/wash.svg",
-        "title": "Стиральные машины",
-        "category": "wash"
+        "imageSrc": "https://object.pscloud.io/cms/cms/UploadsCatalog/img_0_65_0_0.webp",
+        "title": "Мониторы",
+        "category": "monitors"
       },
       {
         "id": 8,
-        "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_931_146_2_1.webp",
-        "title": "Кофемашины",
-        "category": "coffee"
+        "imageSrc": "https://object.pscloud.io/cms/cms/UploadsCatalog/img_0_66_0_0.webp",
+        "title": "Персональные компьютеры",
+        "category": "pc"
       },
       {
         "id": 9,
-        "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_21_247_0_6_320.webp",
-        "title": "Микроволновые печи",
-        "category": "mircowave"
+        "imageSrc": "https://object.pscloud.io/cms/cms/UploadsCatalog/img_0_437_0_0.webp",
+        "title": "Моноблоки",
+        "category": "monoblocks"
+      },
+      {
+        "id": 10,
+        "imageSrc": "https://object.pscloud.io/cms/cms/UploadsCatalog/img_0_88_0_0.webp",
+        "title": "Клавиатуры",
+        "category": "keyboard"
       },
       {
         "id": 11,
-        "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_2235_100_2_1_320.webp",
-        "title": "Морозильники",
-        "category": "morozilniki"
+        "imageSrc": "https://object.pscloud.io/cms/cms/UploadsCatalog/img_0_89_0_0.webp",
+        "title": "Мышки",
+        "category": "mouse"
       },
       {
         "id": 12,
-        "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_16_626_1_1_320.webp",
-        "title": "Кухонные плиты",
-        "category": "plity"
-      },
-      {
-        "id": 13,
-        "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_22_155_0_320.webp",
-        "title": "Посудомоечные машины",
-        "category": "posudawash"
-      },
-      {
-        "id": 14,
-        "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_17_196_6_1_320.webp",
-        "title": "Увлажнители воздуха",
-        "category": "uvlajnitely"
-      },
-      {
-        "id": 15,
-        "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_24_941_1_1_320.webp",
-        "title": "Роботы пылесосы",
-        "category": "robots"
-      },
-      {
-        "id": 16,
-        "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_577_64_0_6_320.webp",
-        "title": "Дроны",
-        "category": "drones"
+        "imageSrc": "https://object.pscloud.io/cms/cms/UploadsCatalog/img_0_648_0_0.webp",
+        "title": "Коврики для мыши",
+        "category": "kovriks"
       }
+    ]
+  },
+  {
+    "id": 2,
+    "imageSrc": "kategory/tv.svg",
+    "title": "Телевизоры",
+    "category": "tv"
+  },
+  {
+    "id": 3,
+    "imageSrc": "kategory/watch.svg",
+    "title": "Умные часы",
+    "category": "watch"
+  },
+  {
+    "id": 4,
+    "imageSrc": "kategory/airpods.svg",
+    "title": "Акссесуары",
+    "category": "airpods"
+  },
+  {
+    "id": 5,
+    "imageSrc": "kategory/conder.svg",
+    "title": "Кондиционеры",
+    "category": "conder"
+  },
+  {
+    "id": 6,
+    "imageSrc": "kategory/freez.svg",
+    "title": "Холодильники",
+    "category": "freez"
+  },
+  {
+    "id": 7,
+    "imageSrc": "kategory/wash.svg",
+    "title": "Стиральные машины",
+    "category": "wash"
+  },
+  {
+    "id": 8,
+    "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_931_146_2_1.webp",
+    "title": "Кофемашины",
+    "category": "coffee"
+  },
+  {
+    "id": 9,
+    "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_21_247_0_6_320.webp",
+    "title": "Микроволновые печи",
+    "category": "mircowave"
+  },
+  {
+    "id": 11,
+    "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_2235_100_2_1_320.webp",
+    "title": "Морозильники",
+    "category": "morozilniki"
+  },
+  {
+    "id": 12,
+    "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_16_626_1_1_320.webp",
+    "title": "Кухонные плиты",
+    "category": "plity"
+  },
+  {
+    "id": 13,
+    "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_22_155_0_320.webp",
+    "title": "Посудомоечные машины",
+    "category": "posudawash"
+  },
+  {
+    "id": 14,
+    "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_17_196_6_1_320.webp",
+    "title": "Увлажнители воздуха",
+    "category": "uvlajnitely"
+  },
+  {
+    "id": 15,
+    "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_24_941_1_1_320.webp",
+    "title": "Роботы пылесосы",
+    "category": "robots"
+  },
+  {
+    "id": 16,
+    "imageSrc": "https://object.pscloud.io/cms/cms/Photo/img_0_577_64_0_6_320.webp",
+    "title": "Дроны",
+    "category": "drones"
+  }
 ]
