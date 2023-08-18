@@ -1,27 +1,45 @@
 "use client";
-import popular from "../../../assets/popular.json";
+
 import ItemBlock from "@/components/ItemBlock/ItemBlock";
 import styles from "./styles.module.scss";
-import laptops from "../../../assets/laptops.json";
+
+import Sort from "@/components/Sort";
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
-interface Laptop {
+
+interface Ilaptops {
   id: number;
-  brand: string;
+  imageSrc: string;
   title: string;
+  price: number;
+  brand: string;
 }
 export default function Laptops() {
   const [selectedBrand, setSelectedBrand] = React.useState<string | null>(null);
   const handleBrandClick = (brand: string | null) => {
     setSelectedBrand(brand);
   };
+
+  const [items, setItems] = React.useState<Ilaptops[]>([]);
+
+  React.useEffect(() => {
+    fetch("https://64dcc6a1e64a8525a0f71f73.mockapi.io/laptops")
+      .then((res) => {
+        return res.json();
+      })
+      .then((laptopsArr) => {
+        setItems(laptopsArr);
+      });
+  }, []);
+
   const filteredLaptops = React.useMemo(() => {
     if (selectedBrand) {
-      return laptops.filter((laptop) => laptop.brand === selectedBrand);
+      return items.filter((laptop) => laptop.brand === selectedBrand);
     } else {
-      return laptops;
+      return items;
     }
-  }, [selectedBrand]);
+  }, [selectedBrand, items]);
+
   return (
     <>
       <AnimatePresence>
@@ -61,6 +79,7 @@ export default function Laptops() {
           </div>
           <div className={styles.laptop_content}>
             <div className="content_items">
+              <Sort></Sort>
               <div className="item-block-wrapper">
                 {filteredLaptops.map((laptop) => (
                   <ItemBlock
