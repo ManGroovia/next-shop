@@ -1,6 +1,6 @@
 import { useState } from "react";
 import MainCategories from "../katalog-categories/MainCategories";
-import allCategories from "../../assets/allCategories.json";
+
 import { motion, AnimatePresence } from "framer-motion";
 import SubCategories from "../katalog-categories/SubCategoryList";
 import React from "react";
@@ -16,6 +16,7 @@ interface Category {
   category: string;
   subcategories?: Subcategory[];
 }
+
 export default React.memo(function KatalogModal() {
   const [selectedCategory, setSelectedCategory] = useState<Category | null>(
     null
@@ -23,6 +24,19 @@ export default React.memo(function KatalogModal() {
   const handleCategoryClick = (category: Category) => {
     setSelectedCategory(category);
   };
+
+  const [dataCategories, setDataCategories] = React.useState<Category[]>([]);
+
+  React.useEffect(() => {
+    fetch("https://64dcc6a1e64a8525a0f71f73.mockapi.io/allCategories")
+      .then((res) => res.json())
+      .then((categoriesList) => {
+        setDataCategories(categoriesList);
+      });
+  }, []);
+
+ 
+  
   return (
     <>
       <AnimatePresence>
@@ -35,7 +49,7 @@ export default React.memo(function KatalogModal() {
           <div className="katalog_wrapper">
             <div className="katalog_left">
               <MainCategories
-                categories={allCategories}
+                categories={dataCategories}
                 onCategoryClick={handleCategoryClick}
               />
             </div>

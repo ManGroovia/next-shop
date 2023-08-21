@@ -1,22 +1,42 @@
 import Link from "next/link";
 
-import allCategories from "../assets/allCategories.json";
+
 import CategoryBlock from "./CategoryBlock";
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 interface PopularProps {
   numItemsToShow: number;
 }
-
+interface Subcategory {
+  id: number;
+  title: string;
+}
+interface Category {
+  id: number;
+  imageSrc: string;
+  title: string;
+  category: string;
+  subcategories?: Subcategory[];
+}
 export default function Categories({ numItemsToShow }: PopularProps) {
   const [itemsToShow, setItemsToShow] = React.useState(numItemsToShow);
   const [shouldAnimate, setShouldAnimate] = React.useState(false);
-  const totalItemsToShow = allCategories.length;
+
   const showMoreItems = () => {
     setItemsToShow((prevItemsToShow) => prevItemsToShow + numItemsToShow);
     setShouldAnimate(true);
   };
+
+  const [categoryList, setCategoryList] = React.useState<Category[]>([]);
+  const totalItemsToShow = categoryList.length;
   const remainingItems = totalItemsToShow - itemsToShow;
+  React.useEffect(() => {
+    fetch("https://64dcc6a1e64a8525a0f71f73.mockapi.io/allCategories")
+      .then((res) => res.json())
+      .then((categoriesList) => {
+        setCategoryList(categoriesList);
+      });
+  }, []);
 
   return (
     <>
@@ -26,7 +46,7 @@ export default function Categories({ numItemsToShow }: PopularProps) {
         </div>
 
         <div className="kategoryes">
-          {allCategories.slice(0, itemsToShow).map((obj, index) => (
+          {categoryList.slice(0, itemsToShow).map((obj, index) => (
             <Link href={`/${obj.category}`} key={obj.title}>
               <AnimatePresence>
                 <motion.div

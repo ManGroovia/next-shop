@@ -2,7 +2,7 @@
 
 import ItemBlock from "@/components/ItemBlock/ItemBlock";
 import styles from "./styles.module.scss";
-
+import Skeleton from "@/components/ItemBlock/Skeleton";
 import Sort from "@/components/Sort";
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -16,6 +16,7 @@ interface Ilaptops {
 }
 export default function Laptops() {
   const [selectedBrand, setSelectedBrand] = React.useState<string | null>(null);
+  const [isLoading, setIsLoading] = React.useState<boolean>(true);
   const handleBrandClick = (brand: string | null) => {
     setSelectedBrand(brand);
   };
@@ -29,7 +30,9 @@ export default function Laptops() {
       })
       .then((laptopsArr) => {
         setItems(laptopsArr);
+        setIsLoading(false)
       });
+      
   }, []);
 
   const filteredLaptops = React.useMemo(() => {
@@ -81,15 +84,19 @@ export default function Laptops() {
             <div className="content_items">
               <Sort></Sort>
               <div className="item-block-wrapper">
-                {filteredLaptops.map((laptop) => (
-                  <ItemBlock
-                    key={laptop.id}
-                    src={laptop.imageSrc}
-                    price={laptop.price}
-                    title={laptop.title}
-                    className="item-block"
-                  />
-                ))}
+                {isLoading
+                  ? [...new Array(8)].map((_, index) => (
+                      <Skeleton key={index} />
+                    ))
+                  : filteredLaptops.map((laptop) => (
+                      <ItemBlock
+                        key={laptop.id}
+                        src={laptop.imageSrc}
+                        price={laptop.price}
+                        title={laptop.title}
+                        className="item-block"
+                      />
+                    ))}
               </div>
             </div>
           </div>

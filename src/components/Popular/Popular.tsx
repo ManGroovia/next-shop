@@ -1,4 +1,4 @@
-import popular from "../../assets/popular.json";
+
 import ItemBlock from "@/components/ItemBlock/ItemBlock";
 import React, { useState, useEffect } from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
@@ -8,17 +8,29 @@ interface PopularProps {
   numItemsToShow: number;
 }
 
+interface Ipopular {
+  id: string;
+  imageSrc: string;
+  title: string;
+  price: number;
+}
 export default function Popular({ numItemsToShow }: PopularProps) {
   const [itemsToShow, setItemsToShow] = useState(numItemsToShow);
-  const totalItems = popular.length;
 
+  const [popularItems, setPopularItems] = React.useState<Ipopular[]>([]);
+
+  React.useEffect(() => {
+    fetch("https://64dcc6a1e64a8525a0f71f73.mockapi.io/popular")
+      .then((res) => res.json())
+      .then((popularArr) => {
+        setPopularItems(popularArr);
+      });
+  }, []);
+  const totalItems = popularItems.length;
+  const remainingItems = totalItems - itemsToShow;
   const showMoreItems = () => {
     setItemsToShow((prevItemsToShow) => prevItemsToShow + totalItems);
   };
-
-  const remainingItems = totalItems - itemsToShow;
-
-  
 
   return (
     <>
@@ -30,7 +42,7 @@ export default function Popular({ numItemsToShow }: PopularProps) {
         <div className="content_items">
           <div className="item-block-wrapper">
             <TransitionGroup component={null}>
-              {popular.slice(0, itemsToShow).map((obj) => (
+              {popularItems.slice(0, itemsToShow).map((obj) => (
                 <CSSTransition key={obj.id} classNames="fade" timeout={500}>
                   <ItemBlock
                     src={obj.imageSrc}
