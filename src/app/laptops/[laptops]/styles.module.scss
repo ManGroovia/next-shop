@@ -24,11 +24,14 @@
       li {
         margin-left: 10px;
         cursor: pointer;
+
+        &:hover {
+          color: #0d63f3;
+          transition: all 0.3s;
+        }
+        
       }
-      li:hover {
-        color: #0d63f3;
-        transition: all 0.3s;
-      }
+     
     }
     .title {
       text-align: center;

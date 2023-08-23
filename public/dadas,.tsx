@@ -13,12 +13,14 @@ interface Ilaptops {
   title: string;
   price: number;
   brand: string;
-  brandId: number;
 }
 
 export default function Laptops() {
-  const brands = ["Все","Acer", "Apple", "Asus"];
+  const [selectedBrand, setSelectedBrand] = React.useState<string | null>(null);
   const [isLoading, setIsLoading] = React.useState<boolean>(true);
+  const handleBrandClick = (brand: string | null) => {
+    setSelectedBrand(brand);
+  };
 
   const [items, setItems] = React.useState<Ilaptops[]>([]);
 
@@ -26,15 +28,9 @@ export default function Laptops() {
     name: "Популярности",
     sortProperty: "rating",
   });
-  const [brandId, setBrandId] = React.useState(0);
-  
-  
 
   React.useEffect(() => {
-    setIsLoading(true);
-    fetch(
-      `https://64dcc6a1e64a8525a0f71f73.mockapi.io/laptops?brandId=` + brandId
-    )
+    fetch(`https://64dcc6a1e64a8525a0f71f73.mockapi.io/laptops?sortBy=${sortType.sortProperty}&order=desc`)
       .then((res) => {
         return res.json();
       })
@@ -42,7 +38,15 @@ export default function Laptops() {
         setItems(laptopsArr);
         setIsLoading(false);
       });
-  }, [brandId]);
+  }, []);
+
+  const filteredLaptops = React.useMemo(() => {
+    if (selectedBrand) {
+      return items.filter((laptop) => laptop.brand === selectedBrand);
+    } else {
+      return items;
+    }
+  }, [selectedBrand, items]);
 
   return (
     <>
@@ -60,15 +64,25 @@ export default function Laptops() {
             </div>
 
             <ul>
-              {brands.map((laptop, i) => (
-                <li
-                  key={i}
-                  onClick={() => setBrandId(i)}
-                  className={brandId === i ? "active" : ""}
-                >
-                  Ноутбуки {laptop}
-                </li>
-              ))}
+              <li onClick={() => handleBrandClick(null)}>Все</li>
+              <li onClick={() => handleBrandClick("Apple")}>Ноутбуки Apple</li>
+              <li onClick={() => handleBrandClick("Lenovo")}>
+                Ноутбуки Lenovo
+              </li>
+              <li onClick={() => handleBrandClick("MSI")}>Ноутбуки MSI</li>
+              <li onClick={() => handleBrandClick("HP")}>Ноутбуки HP</li>
+              <li onClick={() => handleBrandClick("Acer")}>Ноутбуки Acer</li>
+              <li onClick={() => handleBrandClick("Asus")}>Ноутбуки Asus</li>
+              <li onClick={() => handleBrandClick("Huawei")}>
+                Ноутбуки Huawei
+              </li>
+              <li onClick={() => handleBrandClick("Gigabyte")}>
+                Ноутбуки Gigabyte
+              </li>
+              <li onClick={() => handleBrandClick("Razer")}>Ноутбуки Razer</li>
+              <li onClick={() => handleBrandClick("Samsung")}>
+                Ноутбуки Samsung
+              </li>
             </ul>
           </div>
           <div className={styles.laptop_content}>
@@ -82,7 +96,7 @@ export default function Laptops() {
                   ? [...new Array(8)].map((_, index) => (
                       <Skeleton key={index} />
                     ))
-                  : items.map((laptop) => (
+                  : filteredLaptops.map((laptop) => (
                       <ItemBlock
                         key={laptop.id}
                         src={laptop.imageSrc}

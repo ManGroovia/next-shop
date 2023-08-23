@@ -31,10 +31,11 @@ export default function CategoryBlocks() {
 
   const computersAndComponentsIndex = 1;
   const podcategories = categoryList[computersAndComponentsIndex]?.subcategories;
-  console.log(podcategories);
+  
 
   return (
     <>
+   
       {podcategories?.map((obj) => (
         <AnimatePresence key={obj.id}>
           <motion.div
