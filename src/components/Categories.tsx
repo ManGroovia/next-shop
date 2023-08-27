@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-
+import Skeleton from "./ItemBlock/Skeleton";
 import CategoryBlock from "./CategoryBlock";
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -23,14 +23,17 @@ export default function Categories({ numItemsToShow }: PopularProps) {
   const [shouldAnimate, setShouldAnimate] = React.useState(false);
 
   const showMoreItems = () => {
-    setItemsToShow((prevItemsToShow) => prevItemsToShow + numItemsToShow);
+    setItemsToShow(itemsToShow + numItemsToShow);
+
     setShouldAnimate(true);
   };
 
   const [categoryList, setCategoryList] = React.useState<Category[]>([]);
   const totalItemsToShow = categoryList.length;
   const remainingItems = totalItemsToShow - itemsToShow;
+  const [isPageLoading, setPageLoading] = React.useState<boolean>(true);
   React.useEffect(() => {
+    setPageLoading(true);
     fetch("https://64dcc6a1e64a8525a0f71f73.mockapi.io/allCategories")
       .then((res) => res.json())
       .then((categoriesList) => {
@@ -47,20 +50,21 @@ export default function Categories({ numItemsToShow }: PopularProps) {
 
         <div className="kategoryes">
           {categoryList.slice(0, itemsToShow).map((obj, index) => (
-            <Link href={`/${obj.category}`} key={obj.title}>
+            <Link href={`/${obj.category}`} key={obj.id}>
               <AnimatePresence>
                 <motion.div
                   initial={shouldAnimate ? { opacity: 0, y: 15 } : false}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 15 }}
                   transition={{ delay: shouldAnimate ? 0.2 : 0 }}
-                  key={index}
                 >
-                  <CategoryBlock
-                    key={obj.id}
-                    src={obj.imageSrc}
-                    title={obj.title}
-                  />
+                  
+                    <CategoryBlock
+                      key={obj.id}
+                      src={obj.imageSrc}
+                      title={obj.title}
+                    />
+                  
                 </motion.div>
               </AnimatePresence>
             </Link>

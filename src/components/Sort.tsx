@@ -1,26 +1,38 @@
-import React from "react";
-export default function Sort({ value, onChangeSortType }) {
-  const [open, setOpen] = React.useState(false);
+import React, { useState } from "react";
 
-  const onSelectSort = (i: number) => {
+interface SortProps {
+  value: {
+    name: string;
+    sortProperty: string;
+  };
+  onChangeSortType: (newValue: { name: string; sortProperty: string }) => void;
+}
+
+export default function Sort({ value, onChangeSortType }: SortProps) {
+  const [open, setOpen] = useState(false);
+
+  const onSelectSort = (i: { name: string; sortProperty: string }) => {
+    
+
     onChangeSortType(i);
     setOpen(false);
   };
+
   const list = [
     {
-      name: "Сначала дешевле",
+      name: "Сначала дороже",
       sortProperty: "price",
     },
     {
-      name: "Сначала дорогие",
-      sortProperty: "price",
+      name: "Сначала дешевле",
+      sortProperty: "-price",
     },
     {
       name: "Популярности",
       sortProperty: "rating",
     },
   ];
- 
+
   return (
     <div className="sort">
       <div className="sort_label">
@@ -46,7 +58,9 @@ export default function Sort({ value, onChangeSortType }) {
               <li
                 key={i}
                 onClick={() => onSelectSort(obj)}
-                className={value.sortProperty == obj.sortProperty ? "active" : ""}
+                className={
+                  value.sortProperty === obj.sortProperty ? "active" : ""
+                }
               >
                 {obj.name}
               </li>

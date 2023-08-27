@@ -3,6 +3,7 @@ import Popular from "@/components/Popular/Popular";
 import Brands from "@/components/Brands";
 import Companies from "@/components/Companies";
 import Categories from "@/components/Categories";
+import Skeleton from "@/components/ItemBlock/Skeleton";
 import { motion, AnimatePresence } from "framer-motion";
 export default function Home() {
   return (
@@ -12,7 +13,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 15 }}
-          transition={{ delay: 0.2 }}
+          transition={{ delay: 0.1 }}
         >
           <Categories numItemsToShow={8} />
           <Popular numItemsToShow={10} />

@@ -17,23 +17,30 @@ interface Ilaptops {
 }
 
 export default function Laptops() {
-  const brands = ["Все","Acer", "Apple", "Asus"];
+  const brands = ["Все", "Acer", "Apple", "Asus"];
   const [isLoading, setIsLoading] = React.useState<boolean>(true);
 
   const [items, setItems] = React.useState<Ilaptops[]>([]);
 
-  const [sortType, setSortType] = React.useState<{}>({
+  const [sortType, setSortType] = React.useState<{
+    name: string;
+    sortProperty: string;
+  }>({
     name: "Популярности",
     sortProperty: "rating",
   });
   const [brandId, setBrandId] = React.useState(0);
-  
-  
+
 
   React.useEffect(() => {
     setIsLoading(true);
+
+    const order = sortType.sortProperty.includes('-') ? 'asc' : 'desc';
+
+    const sortBy = sortType.sortProperty.replace("-", "");
+    const category = brandId > 0 ? `brandId=${brandId}` : "";
     fetch(
-      `https://64dcc6a1e64a8525a0f71f73.mockapi.io/laptops?brandId=` + brandId
+      `https://64dcc6a1e64a8525a0f71f73.mockapi.io/laptops?${category}&sortBy=${sortBy}&order=${order}`
     )
       .then((res) => {
         return res.json();
@@ -42,8 +49,11 @@ export default function Laptops() {
         setItems(laptopsArr);
         setIsLoading(false);
       });
-  }, [brandId]);
+  }, [brandId, sortType]);
+  
 
+  
+  
   return (
     <>
       <AnimatePresence>
@@ -60,7 +70,7 @@ export default function Laptops() {
             </div>
 
             <ul>
-              {brands.map((laptop, i) => (
+              {brands.map((laptop, i:number) => (
                 <li
                   key={i}
                   onClick={() => setBrandId(i)}
@@ -75,7 +85,7 @@ export default function Laptops() {
             <div className="content_items">
               <Sort
                 value={sortType}
-                onChangeSortType={(i) => setSortType(i)}
+                onChangeSortType={(i: { name: string; sortProperty: string }) => setSortType(i)}
               ></Sort>
               <div className="item-block-wrapper">
                 {isLoading
