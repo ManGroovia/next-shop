@@ -1,13 +1,11 @@
 "use client";
-import Breadcrumbs from "@/components/Breadcrumbs/Breadcrumbs";
 import ItemBlock from "@/components/ItemBlock/ItemBlock";
-import styles from "./styles.module.scss";
+import styles from "../laptops/[laptops]/styles.module.scss";
 import Skeleton from "@/components/ItemBlock/Skeleton";
 import Sort from "@/components/Sort";
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
-
 interface ISubcategory {
   id: number;
   imageSrc: string;
@@ -15,13 +13,21 @@ interface ISubcategory {
   category: string;
   products?: Ilaptops[];
 }
-
+interface Iproducts {
+  id: number;
+  imageSrc: string;
+  title: string;
+  price: number;
+  brandId: number;
+  brand: string;
+}
 interface ICategory {
   id: number;
   imageSrc: string;
   title: string;
   category: string;
   subcategories: ISubcategory[];
+  products: Iproducts[];
 }
 
 interface Ilaptops {
@@ -32,9 +38,7 @@ interface Ilaptops {
   brand: string;
   brandId: number;
 }
-
-export default function Laptops() {
- 
+export default function Smartphones() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [items, setItems] = useState<Ilaptops[]>([]);
   const [brands, setBrands] = useState<string[]>([]);
@@ -57,28 +61,25 @@ export default function Laptops() {
     fetch("https://64dcc6a1e64a8525a0f71f73.mockapi.io/allCategories")
       .then((res) => res.json())
       .then((data: ICategory[]) => {
-        const laptopsArray = data.find(
-          (category) => category.category === "laptops"
-        );
-        const laptops = laptopsArray?.subcategories.find(
-          (sub) => sub.category === "laptops"
+        const smartphonesArray = data.find(
+          (category) => category.category === "Smartphones"
         );
 
-        if (laptops) {
+        if (smartphonesArray) {
           const brandSet = new Set<string>();
-          laptops.products?.forEach((laptop) => {
-            brandSet.add(laptop.brand);
+          smartphonesArray.products?.forEach((smartphone) => {
+            brandSet.add(smartphone.brand);
           });
           setBrands(["Все", ...Array.from(brandSet)]);
 
-          let filteredLaptops = laptops.products || [];
+          let filteredSmartphones = smartphonesArray.products || [];
           if (brandId > 0) {
-            filteredLaptops = filteredLaptops.filter(
-              (laptop) => laptop.brandId === brandId
+            filteredSmartphones = filteredSmartphones.filter(
+              (smartphone) => smartphone.brandId === brandId
             );
           }
 
-          const sortedLaptops = filteredLaptops.sort((a, b) => {
+          const sortedSmarphones = filteredSmartphones.sort((a, b) => {
             if (sortBy === "price") {
               return order === "asc" ? a.price - b.price : b.price - a.price;
             } else {
@@ -87,12 +88,11 @@ export default function Laptops() {
             }
           });
 
-          setItems(sortedLaptops);
+          setItems(sortedSmarphones);
           setIsLoading(false);
         }
       });
   }, [brandId, sortType]);
-
   return (
     <>
       <AnimatePresence>
@@ -104,9 +104,8 @@ export default function Laptops() {
           className={styles.laptops_wrapper}
         >
           <div className={styles.brand_filter}>
-          
             <div className={styles.title}>
-              <h3>Ноутбуки</h3>
+              <h3>Смартфоны</h3>
             </div>
             <ul>
               {brands.map((brand, i) => (
@@ -115,7 +114,7 @@ export default function Laptops() {
                   onClick={() => setBrandId(i)}
                   className={brandId === i ? "active" : ""}
                 >
-                  {brand === "Все" ? "Все производители" : `Ноутбуки ${brand}`}
+                  {brand === "Все" ? "Все производители" : `Смартфоны ${brand}`}
                 </li>
               ))}
             </ul>
@@ -150,4 +149,3 @@ export default function Laptops() {
     </>
   );
 }
-

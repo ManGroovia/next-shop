@@ -37,7 +37,19 @@
     .search {
       display: flex;
       flex-direction: row;
-      
+      position: relative;
+      .clearIcon {
+        width: 35px;
+        height: 35px;
+        position: absolute;
+        right: 60px;
+        top: 5px;
+        opacity: 0.4;
+        cursor: pointer;
+        &:hover {
+          opacity: 0.8;
+        }
+      }
       input {
         width: 396px;
         height: 46px;
@@ -45,15 +57,13 @@
         outline: none;
         border: 1px solid #e4e7ee;
         font-size: 16px;
-        box-sizing:border-box;
+        box-sizing: border-box;
         padding: 8px;
         opacity: 0.8;
-        &:focus{
+        &:focus {
           opacity: 1;
         }
       }
-      
-     
     }
     .katalog {
       width: 149px;

@@ -27,20 +27,27 @@ export default function RootLayout({
 
   const handleKatalogButtonClick = () => {
     setIsKatalogOpen(!isKatalogOpen);
-    
   };
+
+
+  const [searchValue, setSearchValue] = React.useState<string>('');
+  console.log(searchValue);
   return (
     <html lang="en">
       <>
         <body className={roboto.className}>
-          <Header onKatalogButtonClick={handleKatalogButtonClick} />
+          <Header
+            onKatalogButtonClick={handleKatalogButtonClick}
+            searchValue={searchValue}
+            setSearchValue={setSearchValue}
+          />
 
           {isKatalogOpen && <Katalog />}
 
           <Slider></Slider>
-          
-            <main className="mainContent">{children}</main>
-            
+
+          <main className="mainContent">{children}</main>
+
           <Footer />
         </body>
       </>
