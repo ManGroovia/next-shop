@@ -32,7 +32,6 @@ export default function RootLayout({
 
   const [searchValue, setSearchValue] = React.useState<string>("");
   const [isSearchOpen, setIsSearchOpen] = React.useState<boolean>(false);
-  
 
   function useOutsideClick(ref: React.RefObject<any>, callback: () => void) {
     useEffect(() => {
@@ -41,20 +40,16 @@ export default function RootLayout({
           callback();
         }
       }
+  
       const handleClick = (e: MouseEvent) => handleClickOutside(e);
-      document.addEventListener('mousedown', handleClick);
+      document.addEventListener("click", handleClick);
       return () => {
-        document.removeEventListener('mousedown', handleClick);
+        document.removeEventListener("click", handleClick);
       };
     }, [ref, callback]);
-    
-    
   }
 
-
-  const searchModalRef = useRef<HTMLDivElement | null>(null);
-
-  
+  const modalContentRef = useRef<HTMLDivElement | null>(null);
 
   const handleSearchOpen = () => {
     setIsSearchOpen(true);
@@ -64,11 +59,8 @@ export default function RootLayout({
     setIsSearchOpen(false);
   };
 
-  useOutsideClick(searchModalRef, handleSearchClose);
+  useOutsideClick(modalContentRef, handleSearchClose);
 
-
-
-  
   return (
     <html lang="en">
       <>
@@ -79,10 +71,14 @@ export default function RootLayout({
             searchValue={searchValue}
             setSearchValue={setSearchValue}
           />
-         {isSearchOpen && (
-            <div ref={searchModalRef}>
-              <SearchModal value = {searchValue} setSearchClose={handleSearchClose} />
-            </div>
+          {isSearchOpen && (
+            
+              <SearchModal
+                value={searchValue}
+                setSearchClose={handleSearchClose}
+                modalContentRef={modalContentRef}
+              />
+            
           )}
           {isKatalogOpen && <Katalog />}
 
