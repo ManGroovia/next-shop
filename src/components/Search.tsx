@@ -4,14 +4,17 @@ import Image from "../../public/close.svg";
 export default function Search({
   searchValue,
   setSearchValue,
+  clickSearch
 }: {
   searchValue: string;
   setSearchValue: any;
+  clickSearch:any
 }) {
   return (
     <>
       <div className="search">
         <input
+        onClick={clickSearch}
           value={searchValue}
           onChange={(event) => setSearchValue(event.target.value)}
           type="text"
@@ -19,7 +22,7 @@ export default function Search({
         />
         {searchValue && (
           <svg
-          onClick={()=> setSearchValue('')}
+            onClick={() => setSearchValue("")}
             className="clearIcon"
             viewBox="0 0 20 19.84"
             xmlns="http://www.w3.org/2000/svg"

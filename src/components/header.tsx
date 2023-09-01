@@ -2,16 +2,20 @@ import Search from "./Search";
 import Katalog from "../components/modals/Katalog";
 import Link from "next/link";
 import React from "react";
-import searchModal from "./modals/searchModal";
+
 export default function Header({
   onKatalogButtonClick,
   searchValue,
   setSearchValue,
+  onSearchClick
 }: {
   onKatalogButtonClick: () => void;
+  onSearchClick: () => void;
   searchValue: string;
   setSearchValue: any;
 }) {
+  
+  
   return (
     <>
       <div className="container">
@@ -26,8 +30,12 @@ export default function Header({
             <h3>Каталог</h3>
           </div>
 
-          <Search searchValue={searchValue} setSearchValue={setSearchValue} />
-          
+          <Search
+            clickSearch={onSearchClick}
+            searchValue={searchValue}
+            setSearchValue={setSearchValue}
+          />
+         
           <div className="fav_cart">
             <img src="Sevimlilar.svg" alt="" />
             <img src="Korzina.svg" alt="" />

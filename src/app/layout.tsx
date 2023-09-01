@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import Katalog from "../components/modals/Katalog";
 import React from "react";
 import { useRef, useState, useEffect } from "react";
+import SearchModal from "@/components/modals/SearchModal";
 const roboto = Roboto({
   weight: "400",
   subsets: ["latin"],
@@ -29,19 +30,60 @@ export default function RootLayout({
     setIsKatalogOpen(!isKatalogOpen);
   };
 
+  const [searchValue, setSearchValue] = React.useState<string>("");
+  const [isSearchOpen, setIsSearchOpen] = React.useState<boolean>(false);
+  
 
-  const [searchValue, setSearchValue] = React.useState<string>('');
-  console.log(searchValue);
+  function useOutsideClick(ref: React.RefObject<any>, callback: () => void) {
+    useEffect(() => {
+      function handleClickOutside(event: MouseEvent) {
+        if (ref.current && !ref.current.contains(event.target)) {
+          callback();
+        }
+      }
+      const handleClick = (e: MouseEvent) => handleClickOutside(e);
+      document.addEventListener('mousedown', handleClick);
+      return () => {
+        document.removeEventListener('mousedown', handleClick);
+      };
+    }, [ref, callback]);
+    
+    
+  }
+
+
+  const searchModalRef = useRef<HTMLDivElement | null>(null);
+
+  
+
+  const handleSearchOpen = () => {
+    setIsSearchOpen(true);
+  };
+
+  const handleSearchClose = () => {
+    setIsSearchOpen(false);
+  };
+
+  useOutsideClick(searchModalRef, handleSearchClose);
+
+
+
+  
   return (
     <html lang="en">
       <>
         <body className={roboto.className}>
           <Header
+            onSearchClick={handleSearchOpen}
             onKatalogButtonClick={handleKatalogButtonClick}
             searchValue={searchValue}
             setSearchValue={setSearchValue}
           />
-
+         {isSearchOpen && (
+            <div ref={searchModalRef}>
+              <SearchModal value = {searchValue} setSearchClose={handleSearchClose} />
+            </div>
+          )}
           {isKatalogOpen && <Katalog />}
 
           <Slider></Slider>

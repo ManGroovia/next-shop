@@ -34,7 +34,6 @@ interface Ilaptops {
 }
 
 export default function Laptops() {
- 
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [items, setItems] = useState<Ilaptops[]>([]);
   const [brands, setBrands] = useState<string[]>([]);
@@ -92,7 +91,18 @@ export default function Laptops() {
         }
       });
   }, [brandId, sortType]);
-
+  const skeletons = [...new Array(8)].map((_, index) => (
+    <Skeleton key={index} />
+  ));
+  const laptops = items.map((laptop) => (
+    <ItemBlock
+      key={laptop.id}
+      src={laptop.imageSrc}
+      price={laptop.price}
+      title={laptop.title}
+      className="item-block"
+    />
+  ));
   return (
     <>
       <AnimatePresence>
@@ -104,7 +114,6 @@ export default function Laptops() {
           className={styles.laptops_wrapper}
         >
           <div className={styles.brand_filter}>
-          
             <div className={styles.title}>
               <h3>Ноутбуки</h3>
             </div>
@@ -129,19 +138,7 @@ export default function Laptops() {
                 }
               ></Sort>
               <div className="item-block-wrapper">
-                {isLoading
-                  ? [...new Array(8)].map((_, index) => (
-                      <Skeleton key={index} />
-                    ))
-                  : items.map((laptop) => (
-                      <ItemBlock
-                        key={laptop.id}
-                        src={laptop.imageSrc}
-                        price={laptop.price}
-                        title={laptop.title}
-                        className="item-block"
-                      />
-                    ))}
+                {isLoading ? skeletons : laptops}
               </div>
             </div>
           </div>
@@ -150,4 +147,3 @@ export default function Laptops() {
     </>
   );
 }
-
