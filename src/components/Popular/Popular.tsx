@@ -17,7 +17,7 @@ interface Ipopular {
 export default function Popular({ numItemsToShow }: PopularProps) {
   const [itemsToShow, setItemsToShow] = useState(numItemsToShow);
 
-  const [popularItems, setPopularItems] = React.useState<Ipopular[]>([]);
+   const [popularItems, setPopularItems] = React.useState<Ipopular[]>([]);
 
   React.useEffect(() => {
     fetch("https://64dcc6a1e64a8525a0f71f73.mockapi.io/popular")
@@ -26,11 +26,13 @@ export default function Popular({ numItemsToShow }: PopularProps) {
         setPopularItems(popularArr);
       });
   }, []);
-  const totalItems = popularItems.length;
+ const totalItems = popularItems.length;
   const remainingItems = totalItems - itemsToShow;
   const showMoreItems = () => {
     setItemsToShow((prevItemsToShow) => prevItemsToShow + totalItems);
   };
+  
+
 
   return (
     <>

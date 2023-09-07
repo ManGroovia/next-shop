@@ -5,14 +5,12 @@ import React from "react";
 
 export default function Header({
   onKatalogButtonClick,
-  searchValue,
-  setSearchValue,
+  
   onSearchClick,
 }: {
   onKatalogButtonClick: () => void;
   onSearchClick: () => void;
-  searchValue: string;
-  setSearchValue: any;
+  
 }) {
   return (
     <>
@@ -30,8 +28,7 @@ export default function Header({
 
           <Search
             clickSearch={onSearchClick}
-            searchValue={searchValue}
-            setSearchValue={setSearchValue}
+           
           />
 
           <div className="fav_cart">

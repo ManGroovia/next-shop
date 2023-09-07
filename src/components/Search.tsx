@@ -1,27 +1,20 @@
-import { useStyleRegistry } from "styled-jsx";
-import Image from "../../public/close.svg";
 
-export default function Search({
-  searchValue,
-  setSearchValue,
-  clickSearch,
+import React, { useContext } from "react";
+import { SearchContextType } from "@/app/layout";
+import { SearchContext } from "@/app/layout";
 
-}: {
-  searchValue: string;
-  setSearchValue: any;
-  clickSearch:any
- 
-}) {
 
-  
+
+
+export default function Search({ clickSearch }: { clickSearch: any }) {
+  const { searchValue, setSearchValue } = React.useContext(SearchContext);
   return (
     <>
       <div className="search">
         <input
-        onClick={(e) => {
-          clickSearch();
-         
-        }}
+          onClick={() => {
+            clickSearch();
+          }}
           value={searchValue}
           onChange={(event) => setSearchValue(event.target.value)}
           type="text"
