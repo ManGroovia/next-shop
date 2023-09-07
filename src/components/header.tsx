@@ -7,15 +7,13 @@ export default function Header({
   onKatalogButtonClick,
   searchValue,
   setSearchValue,
-  onSearchClick
+  onSearchClick,
 }: {
   onKatalogButtonClick: () => void;
   onSearchClick: () => void;
   searchValue: string;
   setSearchValue: any;
 }) {
-  
-  
   return (
     <>
       <div className="container">
@@ -35,7 +33,7 @@ export default function Header({
             searchValue={searchValue}
             setSearchValue={setSearchValue}
           />
-         
+
           <div className="fav_cart">
             <img src="Sevimlilar.svg" alt="" />
             <img src="Korzina.svg" alt="" />

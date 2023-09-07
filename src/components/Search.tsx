@@ -4,17 +4,24 @@ import Image from "../../public/close.svg";
 export default function Search({
   searchValue,
   setSearchValue,
-  clickSearch
+  clickSearch,
+
 }: {
   searchValue: string;
   setSearchValue: any;
   clickSearch:any
+ 
 }) {
+
+  
   return (
     <>
       <div className="search">
         <input
-        onClick={clickSearch}
+        onClick={(e) => {
+          clickSearch();
+         
+        }}
           value={searchValue}
           onChange={(event) => setSearchValue(event.target.value)}
           type="text"

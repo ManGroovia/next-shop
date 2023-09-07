@@ -7,7 +7,7 @@ import Sort from "@/components/Sort";
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
-
+import Pagination from "@/components/Pagination";
 interface ISubcategory {
   id: number;
   imageSrc: string;
@@ -34,6 +34,7 @@ interface Ilaptops {
 }
 
 export default function Laptops() {
+  const [currentPage, setCurrentPage] = useState<number>(1);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [items, setItems] = useState<Ilaptops[]>([]);
   const [brands, setBrands] = useState<string[]>([]);
@@ -53,7 +54,7 @@ export default function Laptops() {
     const sortBy = sortType.sortProperty.replace("-", "");
     const category = brandId > 0 ? `brandId=${brandId}` : "";
 
-    fetch("https://64dcc6a1e64a8525a0f71f73.mockapi.io/allCategories")
+    fetch(`https://64dcc6a1e64a8525a0f71f73.mockapi.io/allCategories?page=${currentPage}&limit=8`)
       .then((res) => res.json())
       .then((data: ICategory[]) => {
         const laptopsArray = data.find(
@@ -81,7 +82,7 @@ export default function Laptops() {
             if (sortBy === "price") {
               return order === "asc" ? a.price - b.price : b.price - a.price;
             } else {
-              // Default sorting by id or any other property
+             
               return order === "asc" ? a.id - b.id : b.id - a.id;
             }
           });
@@ -90,7 +91,7 @@ export default function Laptops() {
           setIsLoading(false);
         }
       });
-  }, [brandId, sortType]);
+  }, [brandId, sortType, currentPage]);
   const skeletons = [...new Array(8)].map((_, index) => (
     <Skeleton key={index} />
   ));
@@ -140,7 +141,9 @@ export default function Laptops() {
               <div className="item-block-wrapper">
                 {isLoading ? skeletons : laptops}
               </div>
+              <Pagination onChangePage={(number: number) => setCurrentPage(number)} />
             </div>
+            
           </div>
         </motion.div>
       </AnimatePresence>

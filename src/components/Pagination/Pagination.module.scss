@@ -1,0 +1,32 @@
+.root {
+  li {
+    display: inline-block;
+
+    a {
+      padding: 10px;
+      border: 1px solid white;
+
+      justify-content: center;
+      align-items: center;
+      width: 20px;
+      height: 20px;
+      color: black;
+      background-color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.699);
+        color: white;
+      }
+    }
+  }
+
+  :global {
+    .selected {
+      a {
+        background-color: rgba(0, 0, 0, 0.699);
+        color: white;
+      }
+    }
+  }
+}

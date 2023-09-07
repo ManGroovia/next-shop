@@ -132,12 +132,12 @@ export default function Smartphones() {
                   ? [...new Array(8)].map((_, index) => (
                       <Skeleton key={index} />
                     ))
-                  : items.map((laptop) => (
+                  : items.map((smartphone) => (
                       <ItemBlock
-                        key={laptop.id}
-                        src={laptop.imageSrc}
-                        price={laptop.price}
-                        title={laptop.title}
+                        key={smartphone.id}
+                        src={smartphone.imageSrc}
+                        price={smartphone.price}
+                        title={smartphone.title}
                         className="item-block"
                       />
                     ))}

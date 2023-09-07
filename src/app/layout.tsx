@@ -50,6 +50,7 @@ export default function RootLayout({
   }
 
   const modalContentRef = useRef<HTMLDivElement | null>(null);
+  
 
   const handleSearchOpen = () => {
     setIsSearchOpen(true);
@@ -61,6 +62,7 @@ export default function RootLayout({
 
   useOutsideClick(modalContentRef, handleSearchClose);
 
+
   return (
     <html lang="en">
       <>
@@ -70,6 +72,7 @@ export default function RootLayout({
             onKatalogButtonClick={handleKatalogButtonClick}
             searchValue={searchValue}
             setSearchValue={setSearchValue}
+            
           />
           {isSearchOpen && (
             

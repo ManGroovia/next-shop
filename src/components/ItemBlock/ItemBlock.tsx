@@ -36,7 +36,11 @@ export default function ItemBlock({
           </div>
           <div className="item-block-title">
             <h4>{title}</h4>
-            <p>{price.toLocaleString()}₸</p>
+            {typeof price === "number" ? (
+              <p>{price.toLocaleString()}₸</p>
+            ) : (
+              <p>Цена не указана</p>
+            )}
           </div>
           <div className="item-block-showcase">Есть в наличии</div>
           <div className="item-block-footer">
