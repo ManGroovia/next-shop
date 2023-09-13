@@ -1,11 +1,12 @@
 "use client";
 import ItemBlock from "@/components/ItemBlock/ItemBlock";
-import styles from "../laptops/[laptops]/styles.module.scss";
+import styles from "../computers/[laptops]/styles.module.scss";
 import Skeleton from "@/components/ItemBlock/Skeleton";
 import Sort from "@/components/Sort";
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
+import { useRouter } from 'next/router';
 interface ISubcategory {
   id: number;
   imageSrc: string;
@@ -39,6 +40,7 @@ interface Ilaptops {
   brandId: number;
 }
 export default function Smartphones() {
+ 
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [items, setItems] = useState<Ilaptops[]>([]);
   const [brands, setBrands] = useState<string[]>([]);
@@ -56,7 +58,7 @@ export default function Smartphones() {
 
     const order = sortType.sortProperty.includes("-") ? "asc" : "desc";
     const sortBy = sortType.sortProperty.replace("-", "");
-    const category = brandId > 0 ? `brandId=${brandId}` : "";
+   
 
     fetch("https://64dcc6a1e64a8525a0f71f73.mockapi.io/allCategories")
       .then((res) => res.json())

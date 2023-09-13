@@ -4,11 +4,14 @@ import { Inter, Roboto, Raleway, Lora, Ysabeau } from "next/font/google";
 import Slider from "@/components/Slider";
 import Header from "@/components/header";
 
+import NextBreadcrumb from "@/components/Breadcrumbs/Breadcrumbs";
 import Footer from "@/components/Footer";
 import Katalog from "../components/modals/Katalog";
 import React from "react";
 import { useRef, useState, useEffect } from "react";
 import SearchModal from "@/components/modals/SearchModal";
+import { ReduxProvider } from "@/redux/provider";
+
 const roboto = Roboto({
   weight: "400",
   subsets: ["latin"],
@@ -20,8 +23,8 @@ export const metadata = {
 };
 
 export const SearchContext = React.createContext<SearchContextType>({
-  searchValue: '', 
-  setSearchValue: () => {}, 
+  searchValue: "",
+  setSearchValue: () => {},
 });
 
 export type SearchContextType = {
@@ -40,7 +43,7 @@ export default function RootLayout({
     setIsKatalogOpen(!isKatalogOpen);
   };
 
-  const [searchValue, setSearchValue] = React.useState<string>('');
+  const [searchValue, setSearchValue] = React.useState<string>("");
   const [isSearchOpen, setIsSearchOpen] = React.useState<boolean>(false);
 
   function useOutsideClick(ref: React.RefObject<any>, callback: () => void) {
@@ -75,27 +78,32 @@ export default function RootLayout({
     <html lang="en">
       <>
         <body className={roboto.className}>
-          <SearchContext.Provider value={{searchValue, setSearchValue}}>
-          <Header
-            onSearchClick={handleSearchOpen}
-            onKatalogButtonClick={handleKatalogButtonClick}
-           
-          />
-          {isSearchOpen && (
-            <SearchModal
-             
-              setSearchClose={handleSearchClose}
-              modalContentRef={modalContentRef}
-            />
-          )}
-          {isKatalogOpen && <Katalog />}
+          <ReduxProvider>
+            <SearchContext.Provider value={{ searchValue, setSearchValue }}>
+              <Header
+                onSearchClick={handleSearchOpen}
+                onKatalogButtonClick={handleKatalogButtonClick}
+              />
+              {isSearchOpen && (
+                <SearchModal
+                  setSearchClose={handleSearchClose}
+                  modalContentRef={modalContentRef}
+                />
+              )}
+              {isKatalogOpen && <Katalog />}
 
-          <Slider></Slider>
+              <Slider></Slider>
+              <NextBreadcrumb
+                homeElement={"Главная"}
+                separator={<span> / </span>}
+                capitalizeLinks
+              />
 
-          <main className="mainContent">{children}</main>
+              {children}
 
-          <Footer />
-          </SearchContext.Provider>
+              <Footer />
+            </SearchContext.Provider>
+          </ReduxProvider>
         </body>
       </>
     </html>

@@ -1,3 +1,4 @@
+
 @use "../styles/modules/header.scss";
 @use "../styles/modules/slider.scss";
 @use "../styles/modules/home.scss";
@@ -7,8 +8,12 @@
 @use "../styles/modules/pcCategoryBlock.scss";
 @use "../styles//modules/katalog.scss";
 @use  "../styles/modules/sort.scss";
-@use  "../styles/modules/Breadcrubms.scss";
+@use  "../styles/modules/NextBreadcrumb.module.scss";
 @use "../styles/modules/searchModal.scss";
+
+
+
+
 
 body {
   margin: 0;

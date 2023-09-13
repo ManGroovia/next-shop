@@ -45,7 +45,7 @@ export default function CategoryBlocks() {
             transition={{ delay: 0.2 }}
             className={styles.content}
           >
-            <Link href={`/laptops/${obj.category}`}>
+            <Link href={`/computers/${obj.category}`}>
               <PcCategoryBlock src={obj.imageSrc} title={obj.title} />
             </Link>
           </motion.div>

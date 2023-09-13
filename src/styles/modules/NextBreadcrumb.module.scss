@@ -6,6 +6,16 @@
     
     width: 80%;
     margin: auto;
+  
+   li{
+    font-weight: bold;
+    font-size: 15px;
+    padding: 10px;
+   }
+
+   span{
+    font-size: 20px;
+   }
   }
   
   .breadcrumb-item {

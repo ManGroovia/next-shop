@@ -8,6 +8,7 @@ import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import Pagination from "@/components/Pagination";
+import { useSelector } from "react-redux";
 interface ISubcategory {
   id: number;
   imageSrc: string;
@@ -38,27 +39,23 @@ export default function Laptops() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [items, setItems] = useState<Ilaptops[]>([]);
   const [brands, setBrands] = useState<string[]>([]);
-  const [sortType, setSortType] = useState<{
-    name: string;
-    sortProperty: string;
-  }>({
-    name: "Популярности",
-    sortProperty: "rating",
-  });
+  
   const [brandId, setBrandId] = useState(0);
+
+  const sortType = useSelector((state)=> state.filter.sort.sortProperty)
 
   useEffect(() => {
     setIsLoading(true);
 
-    const order = sortType.sortProperty.includes("-") ? "asc" : "desc";
-    const sortBy = sortType.sortProperty.replace("-", "");
+    const order = sortType.includes("-") ? "asc" : "desc";
+    const sortBy = sortType.replace("-", "");
     const category = brandId > 0 ? `brandId=${brandId}` : "";
 
     fetch(`https://64dcc6a1e64a8525a0f71f73.mockapi.io/allCategories?page=${currentPage}&limit=8`)
       .then((res) => res.json())
       .then((data: ICategory[]) => {
         const laptopsArray = data.find(
-          (category) => category.category === "laptops"
+          (category) => category.category === "computers"
         );
         const laptops = laptopsArray?.subcategories.find(
           (sub) => sub.category === "laptops"
@@ -133,10 +130,6 @@ export default function Laptops() {
           <div className={styles.laptop_content}>
             <div className="content_items">
               <Sort
-                value={sortType}
-                onChangeSortType={(i: { name: string; sortProperty: string }) =>
-                  setSortType(i)
-                }
               ></Sort>
               <div className="item-block-wrapper">
                 {isLoading ? skeletons : laptops}

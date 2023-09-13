@@ -41,6 +41,8 @@ export default function Categories({ numItemsToShow }: PopularProps) {
       });
   }, []);
 
+
+
   return (
     <>
       <div className="home">
