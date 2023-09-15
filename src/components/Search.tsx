@@ -1,28 +1,46 @@
-
-import React, { useContext } from "react";
-import { SearchContextType } from "@/app/layout";
+import React, { RefObject } from "react";
+import debounce from "lodash.debounce";
 import { SearchContext } from "@/app/layout";
 
-
-
-
 export default function Search({ clickSearch }: { clickSearch: any }) {
+  const [value, setValue] = React.useState('')
   const { searchValue, setSearchValue } = React.useContext(SearchContext);
+  const inputRef: RefObject<HTMLInputElement> =
+    React.createRef<HTMLInputElement>();
+  const onClickClear = () => {
+    setSearchValue("");
+    setValue('')
+    inputRef.current?.focus();
+  };
+
+  const updateSearchValue = React.useCallback(
+    debounce((str) => {
+      setSearchValue(str);
+    }, 500),
+    []
+  );
+
+ const  onChangeInput = (event:any)=>{
+  setValue(event.target.value);
+  updateSearchValue(event.target.value)
+
+  }
   return (
     <>
       <div className="search">
         <input
+          ref={inputRef}
           onClick={() => {
             clickSearch();
           }}
-          value={searchValue}
-          onChange={(event) => setSearchValue(event.target.value)}
+          value={value}
+          onChange={onChangeInput}
           type="text"
           placeholder="Введите название товара"
         />
-        {searchValue && (
+        {value && (
           <svg
-            onClick={() => setSearchValue("")}
+            onClick={onClickClear}
             className="clearIcon"
             viewBox="0 0 20 19.84"
             xmlns="http://www.w3.org/2000/svg"

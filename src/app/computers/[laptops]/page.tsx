@@ -1,5 +1,5 @@
 "use client";
-import Breadcrumbs from "@/components/Breadcrumbs/Breadcrumbs";
+
 import ItemBlock from "@/components/ItemBlock/ItemBlock";
 import styles from "./styles.module.scss";
 import Skeleton from "@/components/ItemBlock/Skeleton";
@@ -9,6 +9,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import Pagination from "@/components/Pagination";
 import { useSelector } from "react-redux";
+import axios from "axios";
+import { RootState } from "@/redux/store";
 interface ISubcategory {
   id: number;
   imageSrc: string;
@@ -39,55 +41,59 @@ export default function Laptops() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [items, setItems] = useState<Ilaptops[]>([]);
   const [brands, setBrands] = useState<string[]>([]);
-  
+  const limit = 8
   const [brandId, setBrandId] = useState(0);
 
-  const sortType = useSelector((state)=> state.filter.sort.sortProperty)
+  const sortType = useSelector((state:RootState)=> state.filter.sort.sortProperty)
 
   useEffect(() => {
     setIsLoading(true);
 
     const order = sortType.includes("-") ? "asc" : "desc";
     const sortBy = sortType.replace("-", "");
-    const category = brandId > 0 ? `brandId=${brandId}` : "";
+    
+    
 
-    fetch(`https://64dcc6a1e64a8525a0f71f73.mockapi.io/allCategories?page=${currentPage}&limit=8`)
-      .then((res) => res.json())
-      .then((data: ICategory[]) => {
-        const laptopsArray = data.find(
-          (category) => category.category === "computers"
-        );
-        const laptops = laptopsArray?.subcategories.find(
-          (sub) => sub.category === "laptops"
-        );
+    axios.get(`https://64dcc6a1e64a8525a0f71f73.mockapi.io/allCategories?page=${currentPage}&limit=${limit}`)
+    .then((response) => {
+      const data: ICategory[] = response.data;
+      const laptopsArray = data.find(
+        (category) => category.category === "computers"
+      );
+      const laptops = laptopsArray?.subcategories.find(
+        (sub) => sub.category === "laptops"
+      );
 
-        if (laptops) {
-          const brandSet = new Set<string>();
-          laptops.products?.forEach((laptop) => {
-            brandSet.add(laptop.brand);
-          });
-          setBrands(["Все", ...Array.from(brandSet)]);
+      if (laptops) {
+        const brandSet = new Set<string>();
+        laptops.products?.forEach((laptop) => {
+          brandSet.add(laptop.brand);
+        });
+        setBrands(["Все", ...Array.from(brandSet)]);
 
-          let filteredLaptops = laptops.products || [];
-          if (brandId > 0) {
-            filteredLaptops = filteredLaptops.filter(
-              (laptop) => laptop.brandId === brandId
-            );
-          }
-
-          const sortedLaptops = filteredLaptops.sort((a, b) => {
-            if (sortBy === "price") {
-              return order === "asc" ? a.price - b.price : b.price - a.price;
-            } else {
-             
-              return order === "asc" ? a.id - b.id : b.id - a.id;
-            }
-          });
-
-          setItems(sortedLaptops);
-          setIsLoading(false);
+        let filteredLaptops = laptops.products || [];
+        if (brandId > 0) {
+          filteredLaptops = filteredLaptops.filter(
+            (laptop) => laptop.brandId === brandId
+          );
         }
-      });
+
+        const sortedLaptops = filteredLaptops.sort((a, b) => {
+          if (sortBy === "price") {
+            return order === "asc" ? a.price - b.price : b.price - a.price;
+          } else {
+            return order === "asc" ? a.id - b.id : b.id - a.id;
+          }
+        });
+
+        setItems(sortedLaptops);
+        setIsLoading(false);
+      }
+    })
+    .catch((error) => {
+      console.error("Ошибка при загрузке данных:", error);
+      setIsLoading(false);
+    });
   }, [brandId, sortType, currentPage]);
   const skeletons = [...new Array(8)].map((_, index) => (
     <Skeleton key={index} />

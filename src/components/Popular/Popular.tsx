@@ -3,7 +3,7 @@ import ItemBlock from "@/components/ItemBlock/ItemBlock";
 import React, { useState, useEffect } from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import "./Popular.scss";
-
+import axios from 'axios'
 interface PopularProps {
   numItemsToShow: number;
 }
@@ -20,11 +20,11 @@ export default function Popular({ numItemsToShow }: PopularProps) {
    const [popularItems, setPopularItems] = React.useState<Ipopular[]>([]);
 
   React.useEffect(() => {
-    fetch("https://64dcc6a1e64a8525a0f71f73.mockapi.io/popular")
-      .then((res) => res.json())
-      .then((popularArr) => {
-        setPopularItems(popularArr);
-      });
+    
+axios.get("https://64dcc6a1e64a8525a0f71f73.mockapi.io/popular").then((res)=>{
+  setPopularItems(res.data)
+})
+
   }, []);
  const totalItems = popularItems.length;
   const remainingItems = totalItems - itemsToShow;

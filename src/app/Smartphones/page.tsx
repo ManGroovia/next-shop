@@ -6,7 +6,10 @@ import Sort from "@/components/Sort";
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
-import { useRouter } from 'next/router';
+import axios from "axios";
+import { useSelector } from "react-redux";
+import { RootState } from "@/redux/store";
+
 interface ISubcategory {
   id: number;
   imageSrc: string;
@@ -40,60 +43,54 @@ interface Ilaptops {
   brandId: number;
 }
 export default function Smartphones() {
- 
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [items, setItems] = useState<Ilaptops[]>([]);
   const [brands, setBrands] = useState<string[]>([]);
-  const [sortType, setSortType] = useState<{
-    name: string;
-    sortProperty: string;
-  }>({
-    name: "Популярности",
-    sortProperty: "rating",
-  });
+  const sortType = useSelector((state:RootState) => state.filter.sort.sortProperty);
   const [brandId, setBrandId] = useState(0);
 
   useEffect(() => {
     setIsLoading(true);
 
-    const order = sortType.sortProperty.includes("-") ? "asc" : "desc";
-    const sortBy = sortType.sortProperty.replace("-", "");
-   
+    const order = sortType.includes("-") ? "asc" : "desc";
+    const sortBy = sortType.replace("-", "");
+    axios.get("https://64dcc6a1e64a8525a0f71f73.mockapi.io/allCategories")
+  .then((response) => {
+    const data: ICategory[] = response.data;
+    const smartphonesArray = data.find(
+      (category) => category.category === "Smartphones"
+    );
 
-    fetch("https://64dcc6a1e64a8525a0f71f73.mockapi.io/allCategories")
-      .then((res) => res.json())
-      .then((data: ICategory[]) => {
-        const smartphonesArray = data.find(
-          (category) => category.category === "Smartphones"
+    if (smartphonesArray) {
+      const brandSet = new Set<string>();
+      smartphonesArray.products?.forEach((smartphone) => {
+        brandSet.add(smartphone.brand);
+      });
+      setBrands(["Все", ...Array.from(brandSet)]);
+
+      let filteredSmartphones = smartphonesArray.products || [];
+      if (brandId > 0) {
+        filteredSmartphones = filteredSmartphones.filter(
+          (smartphone) => smartphone.brandId === brandId
         );
+      }
 
-        if (smartphonesArray) {
-          const brandSet = new Set<string>();
-          smartphonesArray.products?.forEach((smartphone) => {
-            brandSet.add(smartphone.brand);
-          });
-          setBrands(["Все", ...Array.from(brandSet)]);
-
-          let filteredSmartphones = smartphonesArray.products || [];
-          if (brandId > 0) {
-            filteredSmartphones = filteredSmartphones.filter(
-              (smartphone) => smartphone.brandId === brandId
-            );
-          }
-
-          const sortedSmarphones = filteredSmartphones.sort((a, b) => {
-            if (sortBy === "price") {
-              return order === "asc" ? a.price - b.price : b.price - a.price;
-            } else {
-              // Default sorting by id or any other property
-              return order === "asc" ? a.id - b.id : b.id - a.id;
-            }
-          });
-
-          setItems(sortedSmarphones);
-          setIsLoading(false);
+      const sortedSmarphones = filteredSmartphones.sort((a, b) => {
+        if (sortBy === "price") {
+          return order === "asc" ? a.price - b.price : b.price - a.price;
+        } else {
+          return order === "asc" ? a.id - b.id : b.id - a.id;
         }
       });
+
+      setItems(sortedSmarphones);
+      setIsLoading(false);
+    }
+  })
+  .catch((error) => {
+    console.error("Ошибка при загрузке данных:", error);
+    setIsLoading(false);
+  });
   }, [brandId, sortType]);
   return (
     <>
@@ -124,10 +121,6 @@ export default function Smartphones() {
           <div className={styles.laptop_content}>
             <div className="content_items">
               <Sort
-                value={sortType}
-                onChangeSortType={(i: { name: string; sortProperty: string }) =>
-                  setSortType(i)
-                }
               ></Sort>
               <div className="item-block-wrapper">
                 {isLoading

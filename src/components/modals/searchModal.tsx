@@ -3,9 +3,8 @@ import { useEffect, useState } from "react";
 import ItemBlock from "../ItemBlock/ItemBlock";
 import Pagination from "../Pagination";
 import { SearchContext } from "@/app/layout";
-import Popular from "../Popular/Popular";
+import axios from 'axios'
 interface ModalProps {
-  
   setSearchClose: () => void;
   modalContentRef: any;
 }
@@ -30,22 +29,24 @@ interface Category {
 
 export default function SearchModal({
   setSearchClose,
-  
+
   modalContentRef,
 }: ModalProps) {
   const [results, setResults] = useState<Product[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const {searchValue} = React.useContext(SearchContext)
+  const { searchValue } = React.useContext(SearchContext);
   const search = searchValue ? `&search=${searchValue}` : "";
-  const limit = 5
-  
+  const limit = 5;
+
   useEffect(() => {
     const apiUrl = `https://64dcc6a1e64a8525a0f71f73.mockapi.io/allProducts?page=${currentPage}&limit=${limit}${search}`;
-
-    fetch(apiUrl).then((res)=> res.json()).then((arr)=>{
-      setResults(arr)
+    axios.get(apiUrl).then((res)=>{
+      setResults(res.data)
     })
-  }, [searchValue,currentPage]);
+  
+
+
+  }, [searchValue, currentPage]);
 
   return (
     <div className="modal_wrapper">
@@ -55,21 +56,15 @@ export default function SearchModal({
           <button onClick={setSearchClose}>X</button>
         </div>
         <div className="content_items">
-          {
-            searchValue === '' ? (
-              
-                <Popular  numItemsToShow={limit}/>
-              
-            ) : results.map((product) => (
-              <ItemBlock
-                key={product.id}
-                src={product.imageSrc}
-                price={product.price}
-                title={product.title}
-                className="item-block"
-              />
-            ))
-          }
+          {results.map((product) => (
+            <ItemBlock
+              key={product.id}
+              src={product.imageSrc}
+              price={product.price}
+              title={product.title}
+              className="item-block"
+            />
+          ))}
         </div>
         <Pagination onChangePage={(number: number) => setCurrentPage(number)} />
       </div>

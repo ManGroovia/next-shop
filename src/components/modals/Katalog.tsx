@@ -1,6 +1,6 @@
 import { useState } from "react";
 import MainCategories from "../katalog-categories/MainCategories";
-
+import axios from "axios";
 import { motion, AnimatePresence } from "framer-motion";
 import SubCategories from "../katalog-categories/SubCategoryList";
 import React from "react";
@@ -28,11 +28,11 @@ export default React.memo(function KatalogModal() {
   const [dataCategories, setDataCategories] = React.useState<Category[]>([]);
 
   React.useEffect(() => {
-    fetch("https://64dcc6a1e64a8525a0f71f73.mockapi.io/allCategories")
-      .then((res) => res.json())
-      .then((categoriesList) => {
-        setDataCategories(categoriesList);
-      });
+   
+
+    axios.get("https://64dcc6a1e64a8525a0f71f73.mockapi.io/allCategories").then((res)=>{
+      setDataCategories(res.data)
+    })
   }, []);
 
  

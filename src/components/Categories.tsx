@@ -1,5 +1,5 @@
 import Link from "next/link";
-
+import axios from 'axios'
 import Skeleton from "./ItemBlock/Skeleton";
 import CategoryBlock from "./CategoryBlock";
 import React from "react";
@@ -34,11 +34,11 @@ export default function Categories({ numItemsToShow }: PopularProps) {
   const [isPageLoading, setPageLoading] = React.useState<boolean>(true);
   React.useEffect(() => {
     setPageLoading(true);
-    fetch("https://64dcc6a1e64a8525a0f71f73.mockapi.io/allCategories")
-      .then((res) => res.json())
-      .then((categoriesList) => {
-        setCategoryList(categoriesList);
-      });
+   
+    axios.get("https://64dcc6a1e64a8525a0f71f73.mockapi.io/allCategories").then((res)=>{
+      setCategoryList(res.data)
+    })
+
   }, []);
 
 

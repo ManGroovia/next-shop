@@ -3,6 +3,9 @@ import styles from "../../styles/modules/NextBreadcrumb.module.scss";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 
+interface IPathNamesMapping {
+  [key: string]: string;
+}
 type TBreadCrumbProps = {
   homeElement: ReactNode;
   separator: ReactNode;
@@ -22,13 +25,12 @@ const NextBreadcrumb = ({
   const paths = usePathname();
   const pathNames = paths.split("/").filter((path) => path);
 
-  const pathNamesMapping = {
+  const pathNamesMapping: IPathNamesMapping = {
     home: "Главная",
     Smartphones: "Смартфоны",
     computers: "Компьютеры и комплектующие",
     laptops: "Ноутбуки",
   };
- 
 
   return (
     <div>
@@ -42,15 +44,14 @@ const NextBreadcrumb = ({
           let itemClasses =
             paths === href ? `${listClasses} ${activeClasses}` : listClasses;
 
-          let itemLink;
+          let itemLink: string;
 
           if (typeof pathNamesMapping[link] === "string") {
             itemLink = pathNamesMapping[link];
-          } else if (pathNamesMapping[link]?.main) {
-            // Это вложенная категория, обработайте ее отдельно
-            itemLink = pathNamesMapping[link].main;
+          } else if (pathNamesMapping[link]) {
+            itemLink = pathNamesMapping[link];
           } else {
-            itemLink = link; // Вернуть сам путь, если ничего не найдено
+            itemLink = link;
           }
 
           return (

@@ -1,6 +1,6 @@
 "use client";
 import PcCategoryBlock from "@/components/pcCateroryBlock/pcCategoryBlock";
-
+import axios from 'axios'
 import Link from "next/link";
 import styles from "./styles.module.scss";
 import React from "react";
@@ -22,11 +22,11 @@ interface Category {
 export default function CategoryBlocks() {
   const [categoryList, setCategoryList] = React.useState<Category[]>([]);
   React.useEffect(() => {
-    fetch("https://64dcc6a1e64a8525a0f71f73.mockapi.io/allCategories")
-      .then((res) => res.json())
-      .then((categoriesList) => {
-        setCategoryList(categoriesList);
-      });
+
+    axios.get("https://64dcc6a1e64a8525a0f71f73.mockapi.io/allCategories").then((res)=>{
+      setCategoryList(res.data)
+    })
+   
   }, []);
 
   const computersAndComponentsIndex = 1;

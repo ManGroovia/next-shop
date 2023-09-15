@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setSortType } from "@/redux/slices/filterSlice";
+import { RootState } from "@/redux/store";
 interface SortProps {
   value: {
     name: string;
@@ -11,7 +12,7 @@ interface SortProps {
 
 export default function Sort() {
   const dispatch = useDispatch()
-  const sort = useSelector(state => state.filter.sort)
+  const sort = useSelector((state:RootState) => state.filter.sort)
   const [open, setOpen] = useState(false);
 
   const onSelectSort = (obj: { name: string; sortProperty: string }) => {
