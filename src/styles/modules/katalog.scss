@@ -1,0 +1,82 @@
+.katalog_wrapper {
+  width: 1230px;
+  height: 818px;
+
+  margin: auto;
+  border-radius: 0 0 10px;
+  background-color: #ffff;
+  box-shadow: 0px 5px 17px 2px rgba(0, 0, 0, 0.44);
+  -webkit-box-shadow: 0px 5px 17px 2px rgba(0, 0, 0, 0.44);
+  -moz-box-shadow: 0px 5px 17px 2px rgba(0, 0, 0, 0.44);
+  display: flex;
+  .katalog_right {
+    
+    width: 100%;
+    display: flex;
+    padding: 15px;
+    justify-content: space-between;
+
+    .f_column {
+      
+      width: 208px;
+      height: 504px;
+      position: relative;
+      
+      ul {
+        display: flex;
+        flex-direction: column;
+       
+        height: 100%;
+        justify-content: space-around;
+        li {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  .katalog_left {
+    width: 292px;
+    height: 100%;
+    background: linear-gradient(
+      270deg,
+      rgba(77, 94, 246, 0.2) 0%,
+      rgba(246, 77, 77, 0.2) 100%
+    );
+
+    ul {
+      height: 80%;
+      
+     
+
+      .katalog_name {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+       
+        li {
+          cursor: pointer;
+          margin-top: 5px;
+          border-radius: 4px 0 0 4px;
+          width: 100%;
+          height: 41px;
+          align-items: center;
+          display: flex;
+          font-size: 14px;
+          text-align: center;
+          padding: 0 0 0 10px;
+         &:active{
+          background-color: #ffff;
+         }
+          &:hover {
+            background-color: #ffff;
+          }
+        }
+      }
+    }
+  }
+  .active {
+    background-color: #ffff;
+    /* Дополнительные стили для активного состояния */
+  }
+}

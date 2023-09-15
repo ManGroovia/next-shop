@@ -1,13 +1,14 @@
 .content_items {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  grid-column-gap: 30px;
-  grid-row-gap: 30px;
-  
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 55px;
+
   .item-block-wrapper {
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 55px;
 
     .item-block {
       width: 230px;
@@ -15,51 +16,66 @@
       margin-top: 10px;
       background-color: #ffffff;
       border-radius: 10px;
-      .item-block-showcase{
+      display: flex;
+
+      justify-content: center;
+      flex-direction: column;
+      &:hover {
+        transition: all 0.3s ease-in-out;
+        -webkit-box-shadow: 1px 8px 8px 4px rgba(34, 60, 80, 0.2);
+      }
+      .item-block-showcase {
         text-align: center;
         margin-top: 20px;
-        color: #6C757D;
+        color: #6c757d;
       }
-      .item-block-footer{
-       
+      .item-block-footer {
         margin-top: 30px;
         display: flex;
         justify-content: space-around;
-        button{
+        button {
           width: 130px;
           height: 40px;
           border-radius: 8px;
           border: none;
           cursor: pointer;
-          color: #FFFFFF;
-          background: #0D63F3;
+          color: #ffffff;
+          background: #0d63f3;
+          transition: all 0.5s;
+          &.active {
+            background-color: rgb(6, 153, 6);
+            transition: all 0.5s;
+          }
         }
-        img{
+        img {
           cursor: pointer;
         }
       }
-      .item-block-title{
+      .item-block-title {
         text-align: center;
-        h4{
+        margin-top: 10px;
+
+        height: 60px;
+        h4 {
           font-weight: 500;
         }
-        p{
+        p {
           margin-top: 5px;
           font-weight: 600;
-          
+
           font-size: 20px;
         }
-        
       }
       .item-block-img {
         display: flex;
         justify-content: center;
+        cursor: pointer;
       }
       .item-block-fav {
         display: flex;
         justify-content: right;
         padding: 10px;
-        img{
+        img {
           cursor: pointer;
         }
       }
@@ -67,7 +83,7 @@
   }
 }
 
-.more{
+.more {
   width: 100%;
   height: 50px;
   border-radius: 10px;
@@ -76,5 +92,4 @@
   background-color: #ffffff;
   font-size: 18px;
   cursor: pointer;
-  
 }

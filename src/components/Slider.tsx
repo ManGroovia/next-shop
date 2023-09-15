@@ -20,8 +20,7 @@ export default () => {
       navigation
       pagination={{ clickable: true }}
       autoplay
-      onSwiper={(swiper) => console.log(swiper)}
-      onSlideChange={() => console.log('slide change')}
+      
     >
       <SwiperSlide><img src="Frame 2.svg" alt="" /></SwiperSlide>
       <SwiperSlide><img src="baner1.svg" alt="" /></SwiperSlide>

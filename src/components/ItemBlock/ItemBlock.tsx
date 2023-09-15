@@ -1,200 +1,63 @@
-export default function ItemBlock() {
+import Image from "next/image";
+import React from "react";
+import favImg from "../../../public/fav.svg";
+import cartImg from "../../../public/itemCart.svg";
+interface IItemBlock {
+  src: string;
+  price: number;
+  title: string;
+  className?: string;
+}
+
+export default function ItemBlock({
+  src,
+  title,
+  price,
+  className,
+}: IItemBlock) {
+  const [added, setAdded] = React.useState("Добавить в корзину");
+
+  const onClickAdded = () => {
+    if (added === "Добавить в корзину") {
+      setAdded("Добавлено");
+    } else {
+      setAdded("Добавить в корзину");
+    }
+  };
   return (
     <>
-      <div className="content_items">
-        <div className="item-block-wrapper">
-          <div className="item-block">
-            <div className="item-block-fav">
-              <img src="/favorite_border.svg" alt="" />
-            </div>
-            <div className="item-block-img">
-              <img src="/kategory/phone.svg" alt="" />
-            </div>
-            <div className="item-block-title">
-              <h4>Смартфон Apple iPhone 13 128GB Starlight</h4>
-              <p>340 000 ₸</p>
-            </div>
-            <div className="item-block-showcase">Есть в наличии</div>
-            <div className="item-block-footer">
-              <button>Добавить в корзину</button>
-              <img src="itemCart.svg" alt="" />
-            </div>
+      <div className="item-block-wrapper">
+        <div className={className}>
+          <div className="item-block-fav">
+            <Image src={favImg} alt="fav" />
+          </div>
+          <div className="item-block-img">
+            <Image src={src} alt="img" width={136} height={136} />
+          </div>
+          <div className="item-block-title">
+            <h4>{title}</h4>
+            {typeof price === "number" ? (
+              <p>{price.toLocaleString()}₸</p>
+            ) : (
+              <p>Цена не указана</p>
+            )}
+          </div>
+          <div className="item-block-showcase">Есть в наличии</div>
+          <div className="item-block-footer">
+            <button
+              onClick={() => onClickAdded()}
+              className={added === "Добавлено" ? "active" : ""}
+            >
+              {added}
+            </button>
+            <Image
+              src={cartImg}
+              alt="cart"
+              style={{ width: "24px", height: "24px" }}
+            />
           </div>
         </div>
-        <div className="item-block-wrapper">
-          <div className="item-block">
-            <div className="item-block-fav">
-              <img src="/favorite_border.svg" alt="" />
-            </div>
-            <div className="item-block-img">
-              <img src="/kategory/phone.svg" alt="" />
-            </div>
-            <div className="item-block-title">
-              <h4>Смартфон Apple iPhone 13 128GB Starlight</h4>
-              <p>340 000 ₸</p>
-            </div>
-            <div className="item-block-showcase">Есть в наличии</div>
-            <div className="item-block-footer">
-              <button>Добавить в корзину</button>
-              <img src="itemCart.svg" alt="" />
-            </div>
-          </div>
-        </div>
-        <div className="item-block-wrapper">
-          <div className="item-block">
-            <div className="item-block-fav">
-              <img src="/favorite_border.svg" alt="" />
-            </div>
-            <div className="item-block-img">
-              <img src="/kategory/phone.svg" alt="" />
-            </div>
-            <div className="item-block-title">
-              <h4>Смартфон Apple iPhone 13 128GB Starlight</h4>
-              <p>340 000 ₸</p>
-            </div>
-            <div className="item-block-showcase">Есть в наличии</div>
-            <div className="item-block-footer">
-              <button>Добавить в корзину</button>
-              <img src="itemCart.svg" alt="" />
-            </div>
-          </div>
-        </div>
-        <div className="item-block-wrapper">
-          <div className="item-block">
-            <div className="item-block-fav">
-              <img src="/favorite_border.svg" alt="" />
-            </div>
-            <div className="item-block-img">
-              <img src="/kategory/phone.svg" alt="" />
-            </div>
-            <div className="item-block-title">
-              <h4>Смартфон Apple iPhone 13 128GB Starlight</h4>
-              <p>340 000 ₸</p>
-            </div>
-            <div className="item-block-showcase">Есть в наличии</div>
-            <div className="item-block-footer">
-              <button>Добавить в корзину</button>
-              <img src="itemCart.svg" alt="" />
-            </div>
-          </div>
-        </div>
-        <div className="item-block-wrapper">
-          <div className="item-block">
-            <div className="item-block-fav">
-              <img src="/favorite_border.svg" alt="" />
-            </div>
-            <div className="item-block-img">
-              <img src="/kategory/phone.svg" alt="" />
-            </div>
-            <div className="item-block-title">
-              <h4>Смартфон Apple iPhone 13 128GB Starlight</h4>
-              <p>340 000 ₸</p>
-            </div>
-            <div className="item-block-showcase">Есть в наличии</div>
-            <div className="item-block-footer">
-              <button>Добавить в корзину</button>
-              <img src="itemCart.svg" alt="" />
-            </div>
-          </div>
-        </div>
-        <div className="item-block-wrapper">
-          <div className="item-block">
-            <div className="item-block-fav">
-              <img src="/favorite_border.svg" alt="" />
-            </div>
-            <div className="item-block-img">
-              <img src="/kategory/phone.svg" alt="" />
-            </div>
-            <div className="item-block-title">
-              <h4>Смартфон Apple iPhone 13 128GB Starlight</h4>
-              <p>340 000 ₸</p>
-            </div>
-            <div className="item-block-showcase">Есть в наличии</div>
-            <div className="item-block-footer">
-              <button>Добавить в корзину</button>
-              <img src="itemCart.svg" alt="" />
-            </div>
-          </div>
-        </div>
-        <div className="item-block-wrapper">
-          <div className="item-block">
-            <div className="item-block-fav">
-              <img src="/favorite_border.svg" alt="" />
-            </div>
-            <div className="item-block-img">
-              <img src="/kategory/phone.svg" alt="" />
-            </div>
-            <div className="item-block-title">
-              <h4>Смартфон Apple iPhone 13 128GB Starlight</h4>
-              <p>340 000 ₸</p>
-            </div>
-            <div className="item-block-showcase">Есть в наличии</div>
-            <div className="item-block-footer">
-              <button>Добавить в корзину</button>
-              <img src="itemCart.svg" alt="" />
-            </div>
-          </div>
-        </div>
-        <div className="item-block-wrapper">
-          <div className="item-block">
-            <div className="item-block-fav">
-              <img src="/favorite_border.svg" alt="" />
-            </div>
-            <div className="item-block-img">
-              <img src="/kategory/phone.svg" alt="" />
-            </div>
-            <div className="item-block-title">
-              <h4>Смартфон Apple iPhone 13 128GB Starlight</h4>
-              <p>340 000 ₸</p>
-            </div>
-            <div className="item-block-showcase">Есть в наличии</div>
-            <div className="item-block-footer">
-              <button>Добавить в корзину</button>
-              <img src="itemCart.svg" alt="" />
-            </div>
-          </div>
-        </div>
-        <div className="item-block-wrapper">
-          <div className="item-block">
-            <div className="item-block-fav">
-              <img src="/favorite_border.svg" alt="" />
-            </div>
-            <div className="item-block-img">
-              <img src="/kategory/phone.svg" alt="" />
-            </div>
-            <div className="item-block-title">
-              <h4>Смартфон Apple iPhone 13 128GB Starlight</h4>
-              <p>340 000 ₸</p>
-            </div>
-            <div className="item-block-showcase">Есть в наличии</div>
-            <div className="item-block-footer">
-              <button>Добавить в корзину</button>
-              <img src="itemCart.svg" alt="" />
-            </div>
-          </div>
-        </div>
-        <div className="item-block-wrapper">
-          <div className="item-block">
-            <div className="item-block-fav">
-              <img src="/favorite_border.svg" alt="" />
-            </div>
-            <div className="item-block-img">
-              <img src="/kategory/phone.svg" alt="" />
-            </div>
-            <div className="item-block-title">
-              <h4>Смартфон Apple iPhone 13 128GB Starlight</h4>
-              <p>340 000 ₸</p>
-            </div>
-            <div className="item-block-showcase">Есть в наличии</div>
-            <div className="item-block-footer">
-              <button>Добавить в корзину</button>
-              <img src="itemCart.svg" alt="" />
-            </div>
-          </div>
-        </div>
-        
       </div>
-      <button className="more">Показать больше</button>
     </>
   );
 }

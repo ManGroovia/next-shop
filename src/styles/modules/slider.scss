@@ -1,22 +1,20 @@
-.slider{
+.slider {
   margin-top: 30px;
-  .swiper{
-    .swiper-pagination{
+  .swiper {
+    z-index: -1;
+    .swiper-pagination {
       position: relative;
       margin-top: 10px;
-     
     }
-    .swiper-wrapper{
-      .swiper-slide{
+    .swiper-wrapper {
+      .swiper-slide {
         display: flex;
         justify-content: center;
-        img{
+        img {
           border-radius: 20px;
           height: 300px;
-          
         }
       }
     }
   }
 }
-
