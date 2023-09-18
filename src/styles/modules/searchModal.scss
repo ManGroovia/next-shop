@@ -19,23 +19,21 @@
     height: 50%;
     margin: auto;
     background-color: #ecf4ff;
-    z-index: 150;
+    z-index: 200;
     margin-top: 75px;
-  display: flex;
-  flex-direction: column;
- 
+    display: flex;
+    flex-direction: column;
+
     .content_items {
       display: flex;
       justify-content: start;
       align-items: center;
       flex-wrap: wrap;
       margin: auto;
-      
     }
     .title_close {
       display: flex;
       justify-content: space-between;
-      
     }
   }
 }

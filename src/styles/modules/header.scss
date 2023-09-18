@@ -9,7 +9,7 @@
   .header {
     display: flex;
     height: 70px;
-
+    position: relative;
     align-items: center;
     width: 80%;
     margin: auto;
@@ -33,6 +33,34 @@
       display: flex;
       justify-content: space-between;
       width: 150px;
+
+      img {
+        cursor: pointer;
+        border-radius: 5px 0 0 5px;
+      }
+    }
+    .cartInfo {
+      width: 80px;
+      height: 45px;
+      position: absolute;
+      right: 0;
+      right: 170px;
+      border-radius: 0 5px 5px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #0d63f3;
+      color: white;
+      font-size: small;
+      .num {
+        display: flex;
+      }
+      img {
+        width: 20px;
+        height: 20px;
+        stroke: white;
+      }
     }
     .search {
       display: flex;
@@ -62,7 +90,6 @@
         box-sizing: border-box;
         padding: 8px;
 
-       
         &:focus {
           opacity: 1;
           z-index: 10;

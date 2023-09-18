@@ -1,8 +1,12 @@
 import Image from "next/image";
 import React from "react";
 import favImg from "../../../public/fav.svg";
+import Link from "next/link";
 import cartImg from "../../../public/itemCart.svg";
+import { useSelector, useDispatch } from "react-redux";
+import { addItem } from "@/redux/slices/cartSlice";
 interface IItemBlock {
+  id: number;
   src: string;
   price: number;
   title: string;
@@ -10,20 +14,29 @@ interface IItemBlock {
 }
 
 export default function ItemBlock({
+  id,
   src,
   title,
   price,
   className,
 }: IItemBlock) {
   const [added, setAdded] = React.useState("Добавить в корзину");
-
+  const dispatch = useDispatch();
   const onClickAdded = () => {
+    const item = {
+      id,
+      title,
+      price,
+      src,
+    };
+    dispatch(addItem(item))
     if (added === "Добавить в корзину") {
       setAdded("Добавлено");
     } else {
       setAdded("Добавить в корзину");
     }
   };
+
   return (
     <>
       <div className="item-block-wrapper">
@@ -45,16 +58,18 @@ export default function ItemBlock({
           <div className="item-block-showcase">Есть в наличии</div>
           <div className="item-block-footer">
             <button
-              onClick={() => onClickAdded()}
+              onClick={onClickAdded}
               className={added === "Добавлено" ? "active" : ""}
             >
               {added}
             </button>
-            <Image
-              src={cartImg}
-              alt="cart"
-              style={{ width: "24px", height: "24px" }}
-            />
+            <Link href="/cart">
+              <Image
+                src={cartImg}
+                alt="cart"
+                style={{ width: "24px", height: "24px" }}
+              />
+            </Link>
           </div>
         </div>
       </div>

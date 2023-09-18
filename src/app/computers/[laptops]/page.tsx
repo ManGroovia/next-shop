@@ -1,5 +1,8 @@
 "use client";
 
+
+import { usePathname } from 'next/navigation'
+
 import ItemBlock from "@/components/ItemBlock/ItemBlock";
 import styles from "./styles.module.scss";
 import Skeleton from "@/components/ItemBlock/Skeleton";
@@ -11,6 +14,10 @@ import Pagination from "@/components/Pagination";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import { RootState } from "@/redux/store";
+import qs from "qs";
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+
 interface ISubcategory {
   id: number;
   imageSrc: string;
@@ -37,6 +44,9 @@ interface Ilaptops {
 }
 
 export default function Laptops() {
+ 
+  
+  
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [items, setItems] = useState<Ilaptops[]>([]);
@@ -95,6 +105,10 @@ export default function Laptops() {
       setIsLoading(false);
     });
   }, [brandId, sortType, currentPage]);
+
+
+
+ 
   const skeletons = [...new Array(8)].map((_, index) => (
     <Skeleton key={index} />
   ));
@@ -140,7 +154,7 @@ export default function Laptops() {
               <div className="item-block-wrapper">
                 {isLoading ? skeletons : laptops}
               </div>
-              <Pagination onChangePage={(number: number) => setCurrentPage(number)} />
+              
             </div>
             
           </div>

@@ -19,6 +19,7 @@
     "framer-motion": "^10.15.1",
     "lodash.debounce": "^4.0.8",
     "next": "^13.4.19",
+    "qs": "^6.11.2",
     "react": "^18.2.0",
     "react-content-loader": "^6.2.1",
     "react-dom": "^18.2.0",
@@ -30,6 +31,7 @@
     "typescript": "5.1.6"
   },
   "devDependencies": {
-    "@types/lodash.debounce": "^4.0.7"
+    "@types/lodash.debounce": "^4.0.7",
+    "@types/qs": "^6.9.8"
   }
 }

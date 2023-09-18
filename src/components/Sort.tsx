@@ -14,13 +14,38 @@ export default function Sort() {
   const dispatch = useDispatch()
   const sort = useSelector((state:RootState) => state.filter.sort)
   const [open, setOpen] = useState(false);
-
+  const sortRef = React.useRef<HTMLDivElement | null>(null);
   const onSelectSort = (obj: { name: string; sortProperty: string }) => {
     
 
     dispatch(setSortType(obj))
     setOpen(false);
   };
+  const handleCloseModal= ()=>{
+    setOpen(false)
+  }
+
+
+
+  function useOutsideClick(ref: React.RefObject<any>, callback: () => void) {
+    React.useEffect(() => {
+      function handleClickOutside(event: MouseEvent) {
+        if (ref.current && !ref.current.contains(event.target)) {
+          callback();
+        }
+      }
+
+      const handleClick = (e: MouseEvent) => handleClickOutside(e);
+      document.addEventListener("click", handleClick);
+      return () => {
+        document.removeEventListener("click", handleClick);
+      };
+    }, [ref, callback]);
+    
+  }
+  useOutsideClick(sortRef,handleCloseModal)
+
+  
 
   const list = [
     {
@@ -38,7 +63,7 @@ export default function Sort() {
   ];
 
   return (
-    <div className="sort">
+    <div ref={sortRef} className="sort">
       <div className="sort_label">
         <svg
           width="12"

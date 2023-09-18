@@ -3,20 +3,15 @@ import "./globals.scss";
 import { Inter, Roboto, Raleway, Lora, Ysabeau } from "next/font/google";
 import Slider from "@/components/Slider";
 import Header from "@/components/header";
-<<<<<<< HEAD
-import Home from "./page";
-import Footer from "@/components/Footer";
-=======
 
 import NextBreadcrumb from "@/components/Breadcrumbs/Breadcrumbs";
 import Footer from "@/components/Footer";
 import Katalog from "../components/modals/Katalog";
 import React from "react";
 import { useRef, useState, useEffect } from "react";
-import SearchModal from "@/components/modals/SearchModal";
+import SearchModal from "@/components/modals/searchModal";
 import { ReduxProvider } from "@/redux/provider";
 
->>>>>>> master
 const roboto = Roboto({
   weight: "400",
   subsets: ["latin"],
@@ -51,7 +46,7 @@ export default function RootLayout({
   const [searchValue, setSearchValue] = React.useState<string>("");
   const [isSearchOpen, setIsSearchOpen] = React.useState<boolean>(false);
 
-  function useOutsideClick(ref: React.RefObject<any>, callback: () => void) {
+   function useOutsideClick(ref: React.RefObject<any>, callback: () => void) {
     useEffect(() => {
       function handleClickOutside(event: MouseEvent) {
         if (ref.current && !ref.current.contains(event.target)) {
@@ -83,12 +78,6 @@ export default function RootLayout({
     <html lang="en">
       <>
         <body className={roboto.className}>
-<<<<<<< HEAD
-          <Header></Header>
-          <Slider></Slider>
-          <Home></Home>
-          <Footer/>
-=======
           <ReduxProvider>
             <SearchContext.Provider value={{ searchValue, setSearchValue }}>
               <Header
@@ -115,7 +104,6 @@ export default function RootLayout({
               <Footer />
             </SearchContext.Provider>
           </ReduxProvider>
->>>>>>> master
         </body>
       </>
     </html>

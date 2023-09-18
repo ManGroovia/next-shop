@@ -30,6 +30,7 @@ const NextBreadcrumb = ({
     Smartphones: "Смартфоны",
     computers: "Компьютеры и комплектующие",
     laptops: "Ноутбуки",
+    cart: "Корзина",
   };
 
   return (

@@ -3,7 +3,10 @@ import { useEffect, useState } from "react";
 import ItemBlock from "../ItemBlock/ItemBlock";
 import Pagination from "../Pagination";
 import { SearchContext } from "@/app/layout";
-import axios from 'axios'
+import { setCurrentPage } from "@/redux/slices/filterSlice";
+import { useSelector, useDispatch } from "react-redux";
+import axios from "axios";
+import { RootState } from "@/redux/store";
 interface ModalProps {
   setSearchClose: () => void;
   modalContentRef: any;
@@ -33,19 +36,20 @@ export default function SearchModal({
   modalContentRef,
 }: ModalProps) {
   const [results, setResults] = useState<Product[]>([]);
-  const [currentPage, setCurrentPage] = useState<number>(1);
+  const dispatch = useDispatch();
+  const {currentPage} = useSelector((state:RootState)=> state.filter)
   const { searchValue } = React.useContext(SearchContext);
   const search = searchValue ? `&search=${searchValue}` : "";
   const limit = 5;
 
+  const onChangePage = (number:number) => {
+    dispatch(setCurrentPage(number));
+  };
   useEffect(() => {
     const apiUrl = `https://64dcc6a1e64a8525a0f71f73.mockapi.io/allProducts?page=${currentPage}&limit=${limit}${search}`;
-    axios.get(apiUrl).then((res)=>{
-      setResults(res.data)
-    })
-  
-
-
+    axios.get(apiUrl).then((res) => {
+      setResults(res.data);
+    });
   }, [searchValue, currentPage]);
 
   return (
@@ -66,7 +70,7 @@ export default function SearchModal({
             />
           ))}
         </div>
-        <Pagination onChangePage={(number: number) => setCurrentPage(number)} />
+        <Pagination currentPage={currentPage} onChangePage={onChangePage} />
       </div>
     </div>
   );
