@@ -130,6 +130,7 @@ export default function Smartphones() {
                   : items.map((smartphone) => (
                       <ItemBlock
                         key={smartphone.id}
+                        id= {smartphone.id}
                         src={smartphone.imageSrc}
                         price={smartphone.price}
                         title={smartphone.title}

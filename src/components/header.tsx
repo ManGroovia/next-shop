@@ -13,6 +13,9 @@ export default function Header({
   onSearchClick: () => void;
 }) {
   const { items, totalPrice } = useSelector((state) => state.cart);
+  
+  
+  const totalCount = items.reduce((sum, item) => sum + item.count, 0)
   return (
     <>
       <div className="container">
@@ -36,9 +39,9 @@ export default function Header({
             </Link>
           </div>
           <div className="cartInfo">
-            <div>{totalPrice} ₸</div>
+            <div>{totalPrice.toLocaleString()} ₸</div>
             <div className="num">
-            {items.length} <img src="cart2.svg" alt="" />
+            {totalCount} <img src="cart2.svg" alt="" />
             </div>
           </div>
           <div className="login">

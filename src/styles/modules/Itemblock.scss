@@ -35,6 +35,10 @@
         justify-content: space-around;
         align-items: center;
         button {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 5px;
           width: 130px;
           height: 40px;
           border-radius: 8px;
@@ -43,9 +47,36 @@
           color: #ffffff;
           background: #0d63f3;
           transition: all 0.5s;
-          &.active {
+         font-size: 15px;
+          &:hover{
+            transition: all 0.3s;
             background-color: rgb(6, 153, 6);
-            transition: all 0.5s;
+          }
+
+          i{
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            width: 20px;
+            height: 20px;
+            border-radius: 15px;
+            border: 1px solid white;
+           color: white;
+            
+          }
+        }
+        .button-clicked {
+          animation: buttonAnimation 0.3s ease;
+        }
+        @keyframes buttonAnimation {
+          0% {
+            transform: scale(1);
+          }
+          50% {
+            transform: scale(1.1);
+          }
+          100% {
+            transform: scale(1);
           }
         }
         img {

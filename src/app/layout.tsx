@@ -98,7 +98,7 @@ export default function RootLayout({
                 separator={<span> / </span>}
                 capitalizeLinks
               />
-
+        
               {children}
 
               <Footer />

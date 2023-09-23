@@ -1,22 +1,47 @@
-export default function addedToCart() {
+import { addItem, minusItem, removeItem } from "@/redux/slices/cartSlice";
+import { useDispatch } from "react-redux";
+
+interface Iprops {
+  id: number;
+  title: string;
+  price: number;
+  count: number;
+  src: string;
+}
+
+export default function addedToCart({ id, title, price, count, src }: Iprops) {
+  const dispatch = useDispatch();
+
+  const onClickPlus = () => {
+    dispatch(addItem({ id }));
+  };
+  const onClickMinus = () => {
+    dispatch(minusItem(id));
+  };
+  const onClickRemove = ()=>{
+    dispatch(removeItem({ id }));
+  }
+  const formatNumberWithSpaces = (number: number) => {
+    return number.toLocaleString("ru-RU");
+  };
   return (
     <div className="added_container">
       <div className="left_side">
-        <img src="http://localhost:3000/_next/image?url=https%3A%2F%2Fobject.pscloud.io%2Fcms%2Fcms%2FPhoto%2Fimg_0_77_3811_4_6_320.webp&w=256&q=75" alt="" />
+        <img src={src} alt="" />
       </div>
       <div className="right_side">
         <div className="top">
-          <h4> Смартфон IPhone 14 Pro Max 256/6 Space Gray</h4>
-          <p>680 000 ₸</p>
+          <h4> {title}</h4>
+          <p>{formatNumberWithSpaces(price * count)}₸</p>
         </div>
-
+        <div  className="delete"> <img  onClick={onClickRemove} src="delete.svg" alt="" /></div>
         <div className="bot">
           <div className="counter">
-            <button className="btn">-</button>
-            <div className="num">1</div>
-            <button className="btn">+</button>
+            <button onClick={onClickMinus} className="btn">-</button>
+            <div className="num">{count}</div>
+            <button onClick={onClickPlus} className="btn">+</button>
           </div>
-          <button className="remove">Удалить из корзины</button>
+          
         </div>
       </div>
     </div>

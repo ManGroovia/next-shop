@@ -20,8 +20,12 @@ export default function ItemBlock({
   price,
   className,
 }: IItemBlock) {
-  const [added, setAdded] = React.useState("Добавить в корзину");
+  const [added, setAdded] = React.useState(false);
   const dispatch = useDispatch();
+  const cartItem = useSelector((state) =>
+    state.cart.items.find((obj) => obj.id === id)
+  );
+  const addedCount = cartItem ? cartItem.count : 0;
   const onClickAdded = () => {
     const item = {
       id,
@@ -29,12 +33,11 @@ export default function ItemBlock({
       price,
       src,
     };
-    dispatch(addItem(item))
-    if (added === "Добавить в корзину") {
-      setAdded("Добавлено");
-    } else {
-      setAdded("Добавить в корзину");
-    }
+    dispatch(addItem(item));
+    setAdded(true);
+    setTimeout(() => {
+      setAdded(false);
+    }, 300);
   };
 
   return (
@@ -59,9 +62,10 @@ export default function ItemBlock({
           <div className="item-block-footer">
             <button
               onClick={onClickAdded}
-              className={added === "Добавлено" ? "active" : ""}
+              className={added ? "button-clicked" : ""}
             >
-              {added}
+              {" "}
+              + Добавить {addedCount > 0 &&  <i>{addedCount}</i>}
             </button>
             <Link href="/cart">
               <Image
