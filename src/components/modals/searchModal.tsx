@@ -12,7 +12,7 @@ interface ModalProps {
   modalContentRef: any;
 }
 interface Product {
-  id: number | string;
+  id: number ;
   imageSrc: string;
   title: string;
   category: string;
@@ -37,12 +37,12 @@ export default function SearchModal({
 }: ModalProps) {
   const [results, setResults] = useState<Product[]>([]);
   const dispatch = useDispatch();
-  const {currentPage} = useSelector((state:RootState)=> state.filter)
+  const { currentPage } = useSelector((state: RootState) => state.filter);
   const { searchValue } = React.useContext(SearchContext);
   const search = searchValue ? `&search=${searchValue}` : "";
   const limit = 5;
 
-  const onChangePage = (number:number) => {
+  const onChangePage = (number: number) => {
     dispatch(setCurrentPage(number));
   };
   useEffect(() => {
@@ -62,6 +62,7 @@ export default function SearchModal({
         <div className="content_items">
           {results.map((product) => (
             <ItemBlock
+              id={product.id}
               key={product.id}
               src={product.imageSrc}
               price={product.price}

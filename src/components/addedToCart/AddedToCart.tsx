@@ -13,13 +13,13 @@ export default function addedToCart({ id, title, price, count, src }: Iprops) {
   const dispatch = useDispatch();
 
   const onClickPlus = () => {
-    dispatch(addItem({ id }));
+    dispatch(addItem({id}));
   };
   const onClickMinus = () => {
     dispatch(minusItem(id));
   };
   const onClickRemove = ()=>{
-    dispatch(removeItem({ id }));
+    dispatch(removeItem({id}));
   }
   const formatNumberWithSpaces = (number: number) => {
     return number.toLocaleString("ru-RU");

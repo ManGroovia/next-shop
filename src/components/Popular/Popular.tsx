@@ -9,7 +9,7 @@ interface PopularProps {
 }
 
 interface Ipopular {
-  id: string;
+  id: number;
   imageSrc: string;
   title: string;
   price: number;
@@ -47,6 +47,7 @@ axios.get("https://64dcc6a1e64a8525a0f71f73.mockapi.io/popular").then((res)=>{
               {popularItems.slice(0, itemsToShow).map((obj) => (
                 <CSSTransition key={obj.id} classNames="fade" timeout={500}>
                   <ItemBlock
+                  id={obj.id}
                     src={obj.imageSrc}
                     price={obj.price}
                     title={obj.title}
